@@ -128,4 +128,8 @@ public class OrderServer {
     public List<Orders> getByTraderId(Integer traderId) {
         return ordersDAO.getByTrader(traderId);
     }
+
+    public List<Orders> getByProductId(boolean in_or_out, Integer productId) {
+        return ordersDAO.getByProduct(in_or_out,productId);
+    }
 }

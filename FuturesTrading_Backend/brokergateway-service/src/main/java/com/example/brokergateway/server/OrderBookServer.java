@@ -13,12 +13,17 @@ public class OrderBookServer {
     @Autowired
     public OrderServer orderServer;
 
-    public List<Info> getOrderBook(Integer broker_id,Integer product_id){
+    public List<Info> getOrderBookByBrokerIdAndProductId(Integer broker_id,Integer product_id){
         List<Orders> sell = orderServer.getByBroker_id(broker_id,true,product_id);
         List<Orders> buy = orderServer.getByBroker_id(broker_id,false,product_id);
         return remote(sell,buy);
     }
 
+    public List<Info> getOrderBookByProductId(Integer productId) {
+        List<Orders> sell = orderServer.getByProductId(true,productId);
+        List<Orders> buy = orderServer.getByProductId(false,productId);
+        return remote(sell,buy);
+    }
 
     private List<Info> remote(List<Orders> sell, List<Orders> buy){
         List<Info> res1 = new ArrayList<>();
@@ -76,4 +81,6 @@ public class OrderBookServer {
             res.get(i).set(size-i);
         }
     }
+
+
 }

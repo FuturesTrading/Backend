@@ -6,16 +6,18 @@ import com.example.tradergateway.dto.BrokerDTO;
 import com.example.tradergateway.service.BrokerDTOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/TraderGateway")
 public class BrokerController {
     @Autowired
     private BrokerDTOService brokerDTOService;
 
-    @GetMapping
+    @GetMapping(value = "/broker")
     public Result<List<BrokerDTO>> getAllBroker(){
         return ResultUtil.success(brokerDTOService.getAll());
     }

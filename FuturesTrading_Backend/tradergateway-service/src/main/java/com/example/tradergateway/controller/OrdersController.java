@@ -16,12 +16,13 @@ import java.text.ParseException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/TraderGateway")
 public class OrdersController {
 
     @Autowired
     private OrdersDTOService ordersDTOService;
 
-    @PostMapping(value = "/trader/order")
+    @PostMapping(value = "/order")
     public Result createOrder(@RequestBody OrdersDTO orderDTO,
                               @RequestParam(defaultValue = ProcessorFactory.NONE) String processStrategy,
                               @RequestParam(defaultValue = DateUtil.TOMMOROW_OPEN) String startTime,
@@ -59,7 +60,7 @@ public class OrdersController {
         }
     }
 
-    @GetMapping(value = "/trader/order")
+    @GetMapping(value = "/order/traderId")
     public Result<List<OrdersDTO>> findOrderByTraderId(@RequestParam(name = "traderId") Integer id){
         return ResultUtil.success(ordersDTOService.findOrderByTraderId(id));
     }

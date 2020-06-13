@@ -9,10 +9,7 @@ import com.example.brokergateway.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class OrdersDAOImpl implements OrdersDAO {
@@ -66,7 +63,33 @@ public class OrdersDAOImpl implements OrdersDAO {
             return orders;
         }
     }
+    @Override
+    public List<Orders> getByProduct(boolean in_or_out, Integer product_id){
+        List<Orders> orders;
+        String mark = in_or_out? "sell ":"buy ";
+        orders= ordersRepository.findByStateAndVarietyAndProductId(1,1,product_id);
+        List<Orders>  res = getBuy(orders);
+        Map<String,List<Orders>> map=new HashMap<>();
+        for(Orders orders1:res){
+            String key="Orders buy "+orders1.getProductId()+" broker " + orders1.getBrokerId();
+            if(map.containsKey(key)){
+                List<Orders> tempOrders=map.get(key);
+                tempOrders.add(orders1);
+            }
+            else{
+                List<Orders> o=new ArrayList<>();
+                o.add(orders1);
+                map.put(key,o);
+            }
+        }
+        for (Map.Entry<String,List<Orders>> entry : map.entrySet()) {
+            redisUtil.set(entry.getKey(), JSONArray.toJSONString(entry.getValue()));
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }
+        return res;
 
+
+    }
     @Override
     public  List<Orders> getByTrader(Integer traderId){
         return ordersRepository.findByTraderId(traderId);

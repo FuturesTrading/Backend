@@ -14,4 +14,6 @@ public interface OrdersDAO {
     Boolean decrease(Integer order_id, Integer amount);
     Boolean addCease(Orders orders);
     List<Orders> getCease(Integer input, Integer product_id, Boolean in_or_out);
+
+    List<Orders> getByProduct(boolean in_or_out, Integer productId);
 }

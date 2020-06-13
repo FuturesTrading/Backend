@@ -14,4 +14,6 @@ public interface OrdersRepository extends JpaRepository<Orders, Integer> {
     List<Orders> findByBrokerIdAndStateAndVarietyAndProductId(Integer broker_id, Integer state, Integer variety, Integer product_id);
 
     List<Orders> findByTraderId(Integer traderId);
+
+    List<Orders> findByStateAndVarietyAndProductId(int i, int i1, Integer product_id);
 }

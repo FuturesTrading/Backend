@@ -7,19 +7,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="brokergateway-service" />
-        <module name="common" />
+        <module name="demo" />
+        <module name="register" />
         <module name="register-server" />
-        <module name="tradergateway-service" />
+        <module name="common" />
         <module name="FuturesTrading_Backend" />
+        <module name="brokergateway-service" />
+        <module name="brokergateway" />
+        <module name="tradergateway-service" />
+        <module name="tradergateway" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="brokergateway" options="-parameters" />
       <module name="brokergateway-service" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="register" options="-parameters" />
       <module name="register-server" options="-parameters" />
+      <module name="tradergateway" options="-parameters" />
       <module name="tradergateway-service" options="-parameters" />
     </option>
   </component>

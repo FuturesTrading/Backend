@@ -26,10 +26,6 @@ public class RedisUtil {
     }
 
 
-    public Set<String> getAllBooks(){
-        return redisTemplate.keys("book"+"*");
-    }
-
     /**
      * 指定缓存失效时间
      * @param key 键

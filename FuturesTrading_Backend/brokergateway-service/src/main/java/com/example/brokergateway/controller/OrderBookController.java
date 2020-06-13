@@ -10,14 +10,19 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @Scope("singleton")
-@RequestMapping("/Orderbook")
+@RequestMapping("/BrokerGateway")
 @RestController
 public class OrderBookController {
     @Autowired
     private OrderBookServer orderBookServer;
 
-    @GetMapping(value = "")
-    public List<Info> getOrderBook(@RequestParam Integer brokerId,@RequestParam Integer productId){
-        return orderBookServer.getOrderBook(brokerId,productId);
+    @GetMapping(value = "/orderBook/broker/product")
+    public List<Info> getOrderBookByBrokerIdAndProductId(@RequestParam Integer brokerId,@RequestParam Integer productId){
+        return orderBookServer.getOrderBookByBrokerIdAndProductId(brokerId,productId);
+    }
+
+    @GetMapping(value = "/orderBook/product")
+    public List<Info> getOrderBookByProductId(@RequestParam Integer productId){
+        return orderBookServer.getOrderBookByProductId(productId);
     }
 }

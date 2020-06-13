@@ -9,9 +9,11 @@ import com.example.tradergateway.service.TraderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/TraderGateway")
 public class TraderController {
     @Autowired
     private TraderService traderService;
@@ -22,7 +24,7 @@ public class TraderController {
         return ResultUtil.success();
     }
 
-    @PostMapping(value = "/trader/newtrader")
+    @PostMapping(value = "/newtrader")
     public Result traderRegister(@RequestBody Trader trader) throws ServiceException {
         traderService.traderRegister(trader);
         return ResultUtil.success();
