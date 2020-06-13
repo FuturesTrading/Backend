@@ -2,6 +2,7 @@ package com.example.tradergateway.service;
 
 
 import com.example.tradergateway.dto.BrokerDTO;
+import com.example.tradergateway.dto.InfoDTO;
 import com.example.tradergateway.dto.OrdersDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,4 +20,7 @@ public interface BrokerClient {
 
     @GetMapping("/Orders/trader")
     List<OrdersDTO> getOrdersByTraderId(@RequestParam Integer traderId);
+
+    @GetMapping(value = "/BrokerGateway/orderBook/broker/product")
+    public List<InfoDTO> getOrderBookByBrokerIdAndProductId(@RequestParam Integer brokerId, @RequestParam Integer productId)
 }

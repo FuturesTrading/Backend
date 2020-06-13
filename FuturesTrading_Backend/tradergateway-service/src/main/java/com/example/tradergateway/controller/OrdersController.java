@@ -64,6 +64,4 @@ public class OrdersController {
     public Result<List<OrdersDTO>> findOrderByTraderId(@RequestParam(name = "traderId") Integer id){
         return ResultUtil.success(ordersDTOService.findOrderByTraderId(id));
     }
-
-
 }
