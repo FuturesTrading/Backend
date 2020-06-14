@@ -7,7 +7,10 @@ import org.springframework.data.repository.query.Param;
 
 public interface BrokerRepository  extends JpaRepository<Broker, Integer> {
 
-    Broker findByBrokerName(String input);
+    @Query(value = "SELECT * FROM broker WHERE " +
+            "broker.broker_name = :input",
+            nativeQuery = true)
+    Broker findByBroker_nameEquals(@Param("input")String input);
 
     Broker findByBrokerId(Integer brokerId);
 }

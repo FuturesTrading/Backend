@@ -21,17 +21,15 @@ public class OrderController {
         orderServer.addOne(orders);
         orderServer.handle(orders,type);
     }
-
-    @GetMapping("/orders/getOrders_handling")
-    public List<Orders> getAll(@RequestParam Integer broker_id, @RequestParam Integer in_or_out,@RequestParam Integer product_id){
-        Boolean tmp = in_or_out == 1;//0代表买入，即true是卖出
-        return orderServer.getByBroker_id(broker_id,tmp,product_id);
+    
+    @GetMapping("/getOrders_handling")
+    public List<Orders> getAll(@RequestParam Integer broker_id){
+        return orderServer.getByBroker_id(broker_id);
     }
 
-    @GetMapping("/orders/getOrders_handled")
-    public List<Orders> getAll_handled(@RequestParam Integer broker_id, @RequestParam Integer in_or_out,@RequestParam Integer product_id){
-        Boolean tmp = in_or_out == 1;//0代表买入，即true是卖出
-        return orderServer.getByBroker_id_handled(broker_id,tmp,product_id);
+    @GetMapping("/getOrders_handled")
+    public List<Orders> getAll_handled(@RequestParam Integer broker_id){
+        return orderServer.getByBroker_id_handled(broker_id);
     }
 
     @GetMapping("/orders/trader")

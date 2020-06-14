@@ -9,6 +9,8 @@ public interface OrdersDAO {
     Orders getOne(Integer input);
     List<Orders> getByBroker(Integer input,Boolean in_or_out, Integer product_id);
     List<Orders> getByBroker_handled(Integer input,Boolean in_or_out, Integer product_id);
+    List<Orders> getByBroker(Integer input);
+    List<Orders> getByBroker_handled(Integer input);
     Boolean setCease(Integer order_id,Integer state);
     Boolean setElse(Integer order_id,Integer state);
     Boolean decrease(Integer order_id, Integer amount);

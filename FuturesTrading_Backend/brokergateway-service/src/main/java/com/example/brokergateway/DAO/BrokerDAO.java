@@ -8,4 +8,5 @@ public interface BrokerDAO {
     Broker getOne(String input);
     List<Broker> getAll();
     Broker getByBrokerId(Integer brokerId);
+    Broker getByBrokerId(Integer brokerId);
 }

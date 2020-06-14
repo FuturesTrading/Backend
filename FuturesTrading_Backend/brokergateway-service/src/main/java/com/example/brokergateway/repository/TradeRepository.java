@@ -8,6 +8,13 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface TradeRepository  extends JpaRepository<Trade, Integer> {
-    List<Trade> getAllByBrokerId(Integer broker_id);
-    List<Trade> getAllByTraderId(@Param("input") Integer trader_id);
+    @Query(value = "SELECT * from trade" +
+            "WHERE broker_id = :input",
+            nativeQuery = true)
+    List<Trade> getAllByBroker_id(@Param("input") Integer broker_id);
+
+    @Query(value = "SELECT * from trade" +
+            "WHERE trader_id = :input",
+            nativeQuery = true)
+    List<Trade> getAllByTrader_id(@Param("input") Integer trader_id);
 }
