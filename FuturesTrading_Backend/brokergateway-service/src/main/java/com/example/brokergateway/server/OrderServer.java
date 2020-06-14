@@ -25,8 +25,14 @@ public class OrderServer {
     @Autowired
     public WebSocketServer webSocketServer;
 
+    @Autowired
+    public TraderClient traderClient;
+
     public Boolean addOne(Orders input) {
         Boolean state = ordersDAO.addOne(input);
+        if(input.getVariety() == 1){
+            traderClient.orderBookUpdateNew(input.getBroker_id(), input.getProduct_id(),input.getIn_or_out(),input.getPrice(), input.getIn_or_out());
+        }
         if (state) {
             handleCease(input.getBroker_id(), input.getProduct_id(), input.getIn_or_out());
         }
@@ -131,6 +137,7 @@ public class OrderServer {
                 business = num;
             }
             ordersDAO.decrease(a.getOrder_id(), business);
+            traderClient.orderBookUpdateDelete(input.getBroker_id(),inpug.getProduct_id(),business,a.getPrice(),a.getIn_or_out());
             ordersDAO.decrease(input.getOrder_id(), business);
             Integer buyer_id, seller_id;
             if (input.getIn_or_out()) {
@@ -147,6 +154,7 @@ public class OrderServer {
                     business,
                     input.getIn_or_out());
             tradeDAO.addOne(trade);
+            traderClient.addTrade(trade);
             if (business == remain)
                 return true;
         }
