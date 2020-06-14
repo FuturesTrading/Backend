@@ -13,16 +13,16 @@ public class BrokerServer{
     @Autowired
     private BrokerDAO brokerDAO;
 
-    public Boolean Login(String name, String password) {
+    public Integer Login(String name, String password) {
         Broker broker = brokerDAO.getOne(name);
         if(broker == null){
-            return false;//没有此用户
+            return null;//没有此用户
         }else{
             String answer = broker.getBrokerPassword();
             if(answer.equals(password)){
-                return true;//成功
+                return broker.getBrokerID();//成功
             }else {
-                return false;//密码错误
+                return null;//密码错误
             }
         }
     }
