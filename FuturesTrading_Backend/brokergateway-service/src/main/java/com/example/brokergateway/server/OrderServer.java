@@ -25,7 +25,6 @@ public class OrderServer {
     @Autowired
     public WebSocketServer webSocketServer;
 
-    @Override
     public Boolean addOne(Orders input) {
         Boolean state = ordersDAO.addOne(input);
         if (state) {
@@ -94,17 +93,14 @@ public class OrderServer {
         }
     }
 
-    @Override
     public List<Orders> getByBroker_id(Integer broker_id, Boolean in_or_out, Integer product_id) {
         return ordersDAO.getByBroker(broker_id, in_or_out, product_id);
     }
 
-    @Override
     public List<Orders> getByBroker_id(Integer broker_id) {
         return ordersDAO.getByBroker(broker_id);
     }
 
-    @Override
     public List<Orders> getByBroker_id_handled(Integer broker_id) {
         return ordersDAO.getByBroker_handled(broker_id);
     }
@@ -157,7 +153,6 @@ public class OrderServer {
         return false;
     }
 
-    @Override
     public void handle(Orders input, Integer type) {
         switch (type) {
             case 1://Market Order
