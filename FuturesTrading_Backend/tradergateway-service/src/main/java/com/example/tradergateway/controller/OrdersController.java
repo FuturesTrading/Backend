@@ -16,7 +16,6 @@ import java.text.ParseException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/TraderGateway")
 public class OrdersController {
 
     @Autowired

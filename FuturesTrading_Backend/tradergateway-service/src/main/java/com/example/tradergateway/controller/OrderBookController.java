@@ -8,12 +8,12 @@ import com.example.tradergateway.websocket.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/TraderGateway")
 public class OrderBookController {
     @Autowired
     private OrderBookService orderBookService;
@@ -21,23 +21,23 @@ public class OrderBookController {
     @Autowired
     private WebSocketServer webSocketServer;
 
-    @GetMapping(value="/orderBook/Buyer")
-    public Result<List<InfoDTO>> getBuyOrderBook(Integer brokerId, Integer productId){
+    @GetMapping(value="/orderBook/buyer")
+    public Result<List<InfoDTO>> getBuyOrderBook(@RequestParam Integer brokerId, @RequestParam Integer productId){
         return ResultUtil.success(orderBookService.getBuyOrderBook(productId,brokerId));
     }
 
-    @GetMapping(value="/orderBook/Seller")
-    public Result<List<InfoDTO>> getSellOrderBook(Integer brokerId, Integer productId){
+    @GetMapping(value="/orderBook/seller")
+    public Result<List<InfoDTO>> getSellOrderBook(@RequestParam  Integer brokerId, @RequestParam  Integer productId){
         return ResultUtil.success(orderBookService.getSellOrderBook(productId,brokerId));
     }
 
     @GetMapping(value = "/orderBook")
-    public Result<List<InfoDTO>> getOrderBook(Integer brokerId, Integer productId){
+    public Result<List<InfoDTO>> getOrderBook(@RequestParam  Integer brokerId, @RequestParam  Integer productId){
         return ResultUtil.success(orderBookService.getOrderBook(productId,brokerId));
     }
 
     @GetMapping(value = "/orderBook/new")
-    public Result orderBookUpdateNew(Integer brokerId, Integer productId,Integer count,Float price,Boolean in_or_out){
+    public Result orderBookUpdateNew(@RequestParam  Integer brokerId, @RequestParam Integer productId,Integer count,Float price,Boolean in_or_out){
         orderBookService.addOrderBook(productId,brokerId,count,price,in_or_out);
         List<InfoDTO> infos=orderBookService.getOrderBook(brokerId,productId);
         //需要调用websocket
@@ -52,7 +52,7 @@ public class OrderBookController {
     }
 
     @GetMapping(value = "/orderBook/none")
-    public Result orderBookUpdateDelete(Integer brokerId, Integer productId,Integer count,Float price,Boolean in_or_out){
+    public Result orderBookUpdateDelete(@RequestParam  Integer brokerId, @RequestParam Integer productId,Integer count,Float price,Boolean in_or_out){
         orderBookService.deleteOrderBook(productId,brokerId,count,price,in_or_out);
         List<InfoDTO> infos=orderBookService.getOrderBook(brokerId,productId);
         //需要调用websocket

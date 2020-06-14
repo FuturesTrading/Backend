@@ -29,4 +29,9 @@ public class TradeDAOImpl implements TradeDAO {
     public List<Trade> getByBroker_id(Integer broker_id) {
         return tradeRepository.getAllByBrokerId(broker_id);
     }
+
+    @Override
+    public List<Trade> getByTrader_id(Integer trader_id) {
+        return tradeRepository.getAllByTraderId(trader_id);
+    }
 }

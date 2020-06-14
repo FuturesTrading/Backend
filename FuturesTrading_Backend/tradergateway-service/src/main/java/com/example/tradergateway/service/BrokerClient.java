@@ -13,18 +13,18 @@ import java.util.List;
 
 @FeignClient(value = "brokerGateway-service")
 public interface BrokerClient {
-    @GetMapping("/Broker/getAll")
+    @GetMapping("/broker/getAll")
     List<BrokerDTO> getAll();
 
-    @GetMapping("/Broker/brokerId")
+    @GetMapping("/broker/brokerId")
     BrokerDTO getBrokerByBrokerId(Integer brokerId);
 
-    @GetMapping("/Orders/trader")
+    @GetMapping("/orders/trader")
     List<OrdersDTO> getOrdersByTraderId(@RequestParam Integer traderId);
 
-    @GetMapping(value = "/BrokerGateway/orderBook/broker/product")
+    @GetMapping(value = "/orderBook/broker/product")
     List<InfoDTO> getOrderBookByBrokerIdAndProductId(@RequestParam Integer brokerId, @RequestParam Integer productId);
 
-    @GetMapping(value = "/BrokerGateway/trade")
+    @GetMapping(value = "/trade")
     List<TradeDTO> getTradeByTraderId(@RequestParam Integer traderId);
 }

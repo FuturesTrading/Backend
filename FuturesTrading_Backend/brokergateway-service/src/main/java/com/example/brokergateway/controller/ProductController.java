@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8080")
+
 @Scope("singleton")
-@RequestMapping("/Product")
 @RestController
 public class ProductController {
     @Autowired
     public ProductServer productServer;
 
-    @GetMapping("/getAll")
+    @GetMapping("/product/allProduct")
     public List<Product> getall(){
         return productServer.getAll();
     }

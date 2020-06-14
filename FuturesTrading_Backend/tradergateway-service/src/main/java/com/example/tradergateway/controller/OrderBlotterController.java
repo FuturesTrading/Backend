@@ -12,13 +12,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RestController
-@RequestMapping("/TraderGateway")
 public class OrderBlotterController {
     @Autowired
     private OrderBlotterService orderBlotterService;
 
     @GetMapping(value = "/trade")
-    public Result<List<TradeDTO>> getTradeByTraderId(Integer traderId){
+    public Result<List<TradeDTO>> getTradeByTraderId(@RequestParam Integer traderId){
         return ResultUtil.success(orderBlotterService.getTradeByTraderId(traderId));
     }
 

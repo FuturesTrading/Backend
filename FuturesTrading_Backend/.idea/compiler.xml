@@ -8,16 +8,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
-        <module name="register" />
-        <module name="register-server" />
+        <module name="tradergateway-service" />
         <module name="common" />
         <module name="FuturesTrading_Backend" />
-        <module name="brokergateway-service" />
+        <module name="register-server" />
         <module name="brokergateway" />
-        <module name="tradergateway-service" />
+        <module name="register" />
         <module name="tradergateway" />
+        <module name="brokergateway-service" />
+        <module name="zuul" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zuul-gateway" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -29,6 +33,8 @@
       <module name="register-server" options="-parameters" />
       <module name="tradergateway" options="-parameters" />
       <module name="tradergateway-service" options="-parameters" />
+      <module name="zuul" options="-parameters" />
+      <module name="zuul-gateway" options="-parameters" />
     </option>
   </component>
 </project>

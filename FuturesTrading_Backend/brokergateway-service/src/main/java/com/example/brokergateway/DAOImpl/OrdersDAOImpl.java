@@ -21,6 +21,7 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public Boolean addOne(Orders input) {
+        input.setOrderId(0);
         input.setState(1);
         input.setRemain(input.getQuantity());
         ordersRepository.save(input);
@@ -64,35 +65,17 @@ public class OrdersDAOImpl implements OrdersDAO {
         }
     }
     @Override
-    public List<Orders> getByProduct(boolean in_or_out, Integer product_id){
-        List<Orders> orders;
-        String mark = in_or_out? "sell ":"buy ";
-        orders= ordersRepository.findByStateAndVarietyAndProductId(1,1,product_id);
-        List<Orders>  res = getBuy(orders);
-        Map<String,List<Orders>> map=new HashMap<>();
-        for(Orders orders1:res){
-            String key="Orders buy "+orders1.getProductId()+" broker " + orders1.getBrokerId();
-            if(map.containsKey(key)){
-                List<Orders> tempOrders=map.get(key);
-                tempOrders.add(orders1);
-            }
-            else{
-                List<Orders> o=new ArrayList<>();
-                o.add(orders1);
-                map.put(key,o);
-            }
-        }
-        for (Map.Entry<String,List<Orders>> entry : map.entrySet()) {
-            redisUtil.set(entry.getKey(), JSONArray.toJSONString(entry.getValue()));
-            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
-        }
-        return res;
-
-
+    public List<Orders> getByTrader(Integer traderId) {
+        return ordersRepository.findByTraderId(traderId);
     }
     @Override
-    public  List<Orders> getByTrader(Integer traderId){
-        return ordersRepository.findByTraderId(traderId);
+    public List<Orders> getByBroker_handled(Integer broker_id, Boolean in_or_out, Integer product_id) {
+        List<Orders> orders;
+        String mark = in_or_out? "sell ":"buy ";
+        orders= ordersRepository.findByBrokerIdAndStateAndVarietyAndProductId(broker_id,2,1,product_id);
+        List<Orders>  res = getBuy(orders);
+        redisUtil.set("Orders buy "+product_id+" broker " + broker_id, JSONArray.toJSONString(res));
+        return res;
     }
 
     private List<Orders> getBuy(List<Orders> orders){

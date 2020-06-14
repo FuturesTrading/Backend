@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "traderGateway-service")
 public interface TraderClient {
 
-    @PostMapping(value = "/TraderGateway/trade")
+    @PostMapping(value = "/trade")
     Result addTrade(@RequestBody Trade trade);
 
-    @GetMapping(value = "/TraderGateway/orderBook/new")
+    @GetMapping(value = "/orderBook/new")
     Result orderBookUpdateNew(Integer brokerId, Integer productId,Integer count,Float price,Boolean in_or_out);
 
-    @GetMapping(value = "/TraderGateway/orderBook/none")
+    @GetMapping(value = "/orderBook/none")
     Result orderBookUpdateDelete(Integer brokerId, Integer productId,Integer count,Float price,Boolean in_or_out);
 }

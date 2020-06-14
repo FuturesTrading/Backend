@@ -2,23 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TraderClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/register-server/src/main/java/com/example/register/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/configuration/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBlotterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/dto/TradeDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/OrderBlotter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBlotterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/websocket/WebSocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/configuration/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/TradeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/src/main/java/com/example/zuul/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/src/main/java/com/example/zuul/ZuulApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul/src/test/java/com/example/zuul/ZuulApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAO/OrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAO/OrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAO/TradeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAO/TradeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/OrdersDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/OrdersDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/TradeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/TradeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/BrokerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/BrokerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/TradeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TradeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TradeServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/websocket/OneThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/websocket/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/websocket/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/demo/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register-server/src/main/java/com/example/register/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/configuration/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/configuration/SpringWebMvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/BrokerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/BrokerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBlotterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBlotterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/OrderBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/OrderBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/TraderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/TraderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBlotterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBlotterService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +96,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
         <option value="Interface" />
       </list>
@@ -89,8 +113,11 @@
     </option>
   </component>
   <component name="ProjectId" id="1cq1RtgTp3vB6o3kANAxvxz5PC6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -99,30 +126,37 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/register-server/src/main/java/com/example/register" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/src" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.45591646" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\register-server\src\main\java\com\example\register" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\traderGateway\src\main\java\com\example\tradergateway" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\common\src\main\java\com\example\common" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\trader-service" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server\src" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAOImpl" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAO" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\server" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.tradergateway" />
+      <recent name="com.example.zuul" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.zuul" />
+      <recent name="com.example.brokergateway.configuration" />
       <recent name="com.example.register" />
       <recent name="com.example.brokergateway.server" />
       <recent name="com.example.tradergateway.configuration" />
-      <recent name="com.example.tradergateway.dto" />
-      <recent name="com.example.tradergateway.Utils" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\controller" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\zuul\src\main\java\com\example\zuul" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\register-server\src\main\java\com\example\register" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\traderGateway\src\main\java\com\example\tradergateway" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\common\src\main\java\com\example\common" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -137,7 +171,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TradergatewayApplication">
+  <component name="RunManager" selected="Spring Boot.ZuulApplication">
     <configuration name="BrokergatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="brokergateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.brokergateway.BrokergatewayApplication" />
@@ -174,8 +208,9 @@
       </method>
     </configuration>
     <configuration name="TradergatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="traderGateway" />
+      <module name="tradergateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.tradergateway.TradergatewayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,6 +218,20 @@
     <configuration name="TraderservicedemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="traderGateway-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.traderservicedemo.TraderservicedemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="zuul" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.zuul.ZuulApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="zuul-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.zuulgateway.ZuulGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -222,7 +271,10 @@
       <workItem from="1591352386532" duration="33433000" />
       <workItem from="1591767146389" duration="22388000" />
       <workItem from="1592032141375" duration="103000" />
-      <workItem from="1592032255910" duration="23829000" />
+      <workItem from="1592032255910" duration="28890000" />
+      <workItem from="1592097640911" duration="1255000" />
+      <workItem from="1592099314852" duration="965000" />
+      <workItem from="1592103039647" duration="15950000" />
     </task>
     <servers />
   </component>
@@ -241,5 +293,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

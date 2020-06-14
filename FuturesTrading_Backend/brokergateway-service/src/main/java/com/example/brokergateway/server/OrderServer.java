@@ -1,12 +1,17 @@
 package com.example.brokergateway.server;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.example.brokergateway.DAO.OrdersDAO;
 import com.example.brokergateway.DAO.TradeDAO;
+import com.example.brokergateway.entity.Info;
 import com.example.brokergateway.entity.Orders;
 import com.example.brokergateway.entity.Trade;
+import com.example.brokergateway.websocket.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,12 +22,76 @@ public class OrderServer {
     @Autowired
     public TradeDAO tradeDAO;
 
+    @Autowired
+    public WebSocketServer webSocketServer;
+
+
     public Boolean addOne(Orders input) {
         Boolean state = ordersDAO.addOne(input);
         if(state){
             handleCease(input.getBrokerId(),input.getProductId(),input.getInOrOut());
         }
+        webSocketServer.sendMessage(input.getBrokerId()+"_"+input.getProductId(),getInfo(input.getBrokerId(),input.getProductId()));
         return true;
+    }
+
+    public String getInfo(Integer broker_id, Integer product_id){
+        List<Orders> sell = getByBroker_id(broker_id,true,product_id);
+        List<Orders> buy = getByBroker_id(broker_id,false,product_id);
+        List<Info> res1 = new ArrayList<>();
+        Integer size = sell.size();
+        Info info;
+        float price = sell.get(0).getPrice();
+        Integer vol = 0, loc = 0;
+        while(loc < size){
+            Orders tmp = sell.get(loc);
+            if(tmp.getPrice() == price){
+                vol += tmp.getQuantity();
+            }else{
+                info = new Info(false,vol,price);
+                res1.add(info);
+                vol = 0;
+                price = tmp.getPrice();
+            }
+            loc++;
+        }
+        if(vol != 0){
+            info = new Info(false,vol,price);
+            res1.add(info);
+            vol = 0;
+        }
+        addLevel(res1);
+
+        List<Info> res2 = new ArrayList<>();
+        size = buy.size();
+        price = 0;
+        while(loc < size){
+            Orders tmp = buy.get(loc);
+            if(tmp.getPrice() == price){
+                vol += tmp.getQuantity();
+            }else{
+                info = new Info(false,vol,price,res2.size()+1);
+                res2.add(info);
+                vol = 0;
+                price = tmp.getPrice();
+            }
+            loc++;
+        }
+        if(vol != 0){
+            info = new Info(false,vol,price);
+            res1.add(info);
+            vol = 0;
+        }
+
+        res1.addAll(res2);
+        return String.valueOf(JSONArray.parseArray(JSON.toJSONString(res1)));
+    }
+
+    public void addLevel(List<Info> res){
+        Integer size = res.size();
+        for(Integer i = 0; i < size; i++){
+            res.get(i).set(size-i);
+        }
     }
 
 
@@ -30,6 +99,10 @@ public class OrderServer {
         return ordersDAO.getByBroker(broker_id,in_or_out,product_id);
     }
 
+
+    public List<Orders> getByBroker_id_handled(Integer broker_id,Boolean in_or_out,Integer product_id) {
+        return ordersDAO.getByBroker_handled(broker_id,in_or_out,product_id);
+    }
     public void handleCease(Integer broker_id,Integer product_id, Boolean in_or_out){
         List<Orders> market = getByBroker_id(broker_id,false,product_id);
         List<Orders> cease =  ordersDAO.getCease(broker_id,product_id,in_or_out);
@@ -125,11 +198,7 @@ public class OrderServer {
         }
     }
 
-    public List<Orders> getByTraderId(Integer traderId) {
+    public List<Orders> getOrdersByTraderId(Integer traderId) {
         return ordersDAO.getByTrader(traderId);
-    }
-
-    public List<Orders> getByProductId(boolean in_or_out, Integer productId) {
-        return ordersDAO.getByProduct(in_or_out,productId);
     }
 }
