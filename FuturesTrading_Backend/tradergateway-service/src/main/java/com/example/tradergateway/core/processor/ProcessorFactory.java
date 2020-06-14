@@ -25,17 +25,15 @@ public class ProcessorFactory {
         private String strategy;
         private Calendar startTime;
         private Calendar endTime;
-        private Integer slice;
         private Integer brokerId;
         private Integer intervalMinute;
 
-        public Parameter(String strategy, String startTime, String endTime, Integer slice, Integer brokerId, Integer intervalMinute) throws ParseException {
+        public Parameter(String strategy, String startTime, String endTime,Integer brokerId, Integer intervalMinute) throws ParseException {
             if (strategy.equals(VWAP) && brokerId == null)
                 throw new InvalidParameterException("brokerId must not be null when using VWAP");
             this.startTime = DateUtil.stringToCalendar(startTime, DateUtil.datetimeFormat);
             this.endTime = DateUtil.stringToCalendar(endTime, DateUtil.datetimeFormat);
             this.strategy = strategy;
-            this.slice = slice;
             this.brokerId = brokerId;
             this.intervalMinute = intervalMinute;
         }
@@ -66,14 +64,6 @@ public class ProcessorFactory {
             this.endTime = endTime;
         }
 
-        public Integer getSlice() {
-            return slice;
-        }
-
-        public void setSlice(Integer slice) {
-            this.slice = slice;
-        }
-
         public Integer getBrokerId() {
             return brokerId;
         }
@@ -102,7 +92,11 @@ public class ProcessorFactory {
                 p = tp;
                 break;
             case NONE:
-                p = new NoneProcessor();
+                TwapProcessor tp1 = new TwapProcessor();
+                tp1.setStartTime(parameter.getStartTime());
+                tp1.setEndTime(parameter.getEndTime());
+                tp1.setInterval(parameter.getIntervalMinute());
+                p = tp1;
                 break;
             default:
                 throw new InvalidParameterException("Unknown Processor Strategy: " + parameter.getStrategy());

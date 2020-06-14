@@ -26,7 +26,6 @@ public class OrdersController {
                               @RequestParam(defaultValue = ProcessorFactory.NONE) String processStrategy,
                               @RequestParam(defaultValue = DateUtil.TOMMOROW_OPEN) String startTime,
                               @RequestParam(defaultValue = DateUtil.TOMMOROW_CLOSE) String endTime,
-                              @RequestParam(defaultValue = "1") Integer slice,
                               @RequestParam(defaultValue = "5") Integer intervalMinute){
         if (orderDTO.getQuantity() <= 0)
             return ResultUtil.failure(ResultCode.WRONG_ORDER_QUANTITY);
@@ -43,7 +42,6 @@ public class OrdersController {
                     processStrategy,
                     startTime,
                     endTime,
-                    slice,
                     brokerId,
                     intervalMinute);
         }
@@ -51,7 +49,7 @@ public class OrdersController {
             return ResultUtil.failure(ResultCode.Failure_Create_ORDER);
         }
         try {
-            ordersDTOService.createOrderWithStrategy(orderDTO,pp,startTime,endTime,slice,intervalMinute);
+            ordersDTOService.createOrderWithStrategy(orderDTO,pp,startTime,endTime,intervalMinute);
             return ResultUtil.success(orderDTO);
         }
         catch (InvalidParameterException | ParseException e){

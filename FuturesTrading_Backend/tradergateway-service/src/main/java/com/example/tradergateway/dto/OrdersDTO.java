@@ -32,6 +32,10 @@ public class OrdersDTO {
 
     private Integer cancelId;
 
+    private String  period;
+
+    private String  productName;
+
     public OrdersDTO() {
 
     }
@@ -48,5 +52,7 @@ public class OrdersDTO {
         remain=o.getRemain();
         price=o.getPrice();
         cancelId=o.getCancelId();
+        productName=o.getProductName();
+        period=o.getPeriod();
     }
 }

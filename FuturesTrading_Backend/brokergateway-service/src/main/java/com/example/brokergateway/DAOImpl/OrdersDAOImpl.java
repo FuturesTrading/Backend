@@ -21,7 +21,7 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public Boolean addOne(Orders input) {
-        input.setOrder_id(0);
+        input.setOrderId(0);
         input.setState(1);
         input.setRemain(input.getQuantity());
         ordersRepository.save(input);
@@ -53,8 +53,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         String mark = in_or_out ? "sell " : "buy ";
         Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
         if (p == null) {
-            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
-                    (broker_id, 1, 1, product_id, in_or_out);
+            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 1, product_id, in_or_out);
             List<Orders> res = getBuy(orders);
             redisUtil.set("Orders buy " + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
@@ -96,7 +95,7 @@ public class OrdersDAOImpl implements OrdersDAO {
     private List<Orders> getBuy(List<Orders> orders) {
         List<Orders> res = new ArrayList<>();
         for (Orders a : orders) {
-            if (!a.getIn_or_out())
+            if (!a.getInOrOut())
                 res.add(a);
         }
         Collections.sort(orders, new Comparator<Orders>() {
@@ -117,10 +116,10 @@ public class OrdersDAOImpl implements OrdersDAO {
     @Override
     public Boolean setCease(Integer order_id, Integer state) {
         Orders input = getOne(order_id);
-        Integer broker_id = input.getBroker_id();
-        Boolean in_or_out = input.getIn_or_out();
+        Integer broker_id = input.getBrokerId();
+        Boolean in_or_out = input.getInOrOut();
         String mark = in_or_out ? "sell " : "buy ";
-        Integer product_id = input.getProduct_id();
+        Integer product_id = input.getProductId();
         Object p = redisUtil.get("Cease " + mark + product_id + " broker " + broker_id);
         if (p != null) {
             List<Orders> orders = ordersRepository.findAllByBroker_id(broker_id);
@@ -136,10 +135,10 @@ public class OrdersDAOImpl implements OrdersDAO {
     public Boolean setElse(Integer order_id, Integer state) {
         Orders input = getOne(order_id);
         if (input.getVariety() == 2) {
-            Integer broker_id = input.getBroker_id();
-            Boolean in_or_out = input.getIn_or_out();
+            Integer broker_id = input.getBrokerId();
+            Boolean in_or_out = input.getInOrOut();
             String mark = in_or_out ? "sell " : "buy ";
-            Integer product_id = input.getProduct_id();
+            Integer product_id = input.getProductId();
             Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
             if (p != null) {
                 List<Orders> orders = ordersRepository.findAllByBroker_id(broker_id);
@@ -150,7 +149,7 @@ public class OrdersDAOImpl implements OrdersDAO {
 
         input.setState(state);
         ordersRepository.saveAndFlush(input);
-        redisUtil.del("Orders" + input.getOrder_id());
+        redisUtil.del("Orders" + input.getOrderId());
         return true;
     }
 
@@ -167,10 +166,10 @@ public class OrdersDAOImpl implements OrdersDAO {
             input.setState(2);
         }
         ordersRepository.saveAndFlush(input);
-        Integer broker_id = input.getBroker_id();
-        Boolean in_or_out = input.getIn_or_out();
+        Integer broker_id = input.getBrokerId();
+        Boolean in_or_out = input.getInOrOut();
         String mark = in_or_out ? "sell " : "buy ";
-        Integer product_id = input.getProduct_id();
+        Integer product_id = input.getProductId();
         Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
         if (p != null) {
             redisUtil.del("Orders " + mark + product_id + " broker " + broker_id);
@@ -180,15 +179,15 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public Boolean addCease(Orders orders) {
-        Integer broker_id = orders.getBroker_id();
-        Integer product_id = orders.getProduct_id();
-        String mark = orders.getIn_or_out() ? "sell " : "buy ";
+        Integer broker_id = orders.getBrokerId();
+        Integer product_id = orders.getProductId();
+        String mark = orders.getInOrOut() ? "sell " : "buy ";
         Object p = redisUtil.get("Cease " + mark + product_id + " broker " + broker_id);
         if (p != null) {
             redisUtil.del("Cease " + mark + product_id + " broker " + broker_id);
         }
         List<Orders> res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
-                (broker_id, 1, 3, product_id, orders.getIn_or_out());
+                (broker_id, 1, 3, product_id, orders.getInOrOut());
         res = getBuy(res);
         redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         return true;

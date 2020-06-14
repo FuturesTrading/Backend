@@ -1,4 +1,4 @@
-package com.example.brokergateway.entity;
+package com.example.tradergateway.entity;
 
 import lombok.Data;
 

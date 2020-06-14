@@ -22,6 +22,4 @@ public class Broker implements Serializable {
     @Basic
     @Column(name = "broker_password")
     private String  brokerPassword;
-
-
 }
