@@ -15,7 +15,7 @@ public class BrokerDAOImpl implements BrokerDAO {
 
     @Override
     public Broker getOne(String broker_name) {
-        return brokerRepository.findByBrokerName(broker_name);
+        return brokerRepository.findByBroker_nameEquals(broker_name);
     }
 
     @Override
