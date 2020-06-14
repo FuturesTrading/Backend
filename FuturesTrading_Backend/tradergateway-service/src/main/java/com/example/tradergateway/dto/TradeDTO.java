@@ -15,4 +15,5 @@ public class TradeDTO {
     Integer productId;
     Integer quantity;
     Integer direction;
+    Integer commissionCount;
 }

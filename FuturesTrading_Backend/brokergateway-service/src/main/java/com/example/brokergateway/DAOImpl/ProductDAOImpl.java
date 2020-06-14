@@ -25,8 +25,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public Boolean addOne(Product input) {
-        input.setProductId(0);
-        productRepository.save(input);
+        input.setProductId(0);        productRepository.save(input);
         return true;
     }
 }

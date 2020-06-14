@@ -44,6 +44,10 @@ public class Trade implements Serializable {
     @Column(name = "direction")
     private Boolean direction;
 
+    @Basic
+    @Column(name = "commissionCount")
+    private Integer commissionCount;
+
     public Trade(){
 
     }
@@ -53,7 +57,8 @@ public class Trade implements Serializable {
                  Integer seller_id,
                  Integer product_id,
                  Integer quantity,
-                 Boolean direction){
+                 Boolean direction,
+                 Integer commissionCount){
         this.brokerId = broker_id;
         this.buyerId = buyer_id;
         this.sellerId = seller_id;
@@ -61,7 +66,7 @@ public class Trade implements Serializable {
         this.productId = product_id;
         this.quantity = quantity;
         this.direction = direction;
-
+        this.commissionCount=commissionCount;
     }
 
 
