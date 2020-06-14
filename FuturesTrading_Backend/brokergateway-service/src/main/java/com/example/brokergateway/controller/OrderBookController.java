@@ -19,9 +19,4 @@ public class OrderBookController {
         return orderBookServer.getOrderBookByBrokerIdAndProductId(brokerId,productId);
     }
 
-    @GetMapping(value = "/orderBook/product")
-    public List<Info> getOrderBookByProductId(@RequestParam Integer productId){
-        return orderBookServer.getOrderBookByProductId(productId);
-    }
-
 }
