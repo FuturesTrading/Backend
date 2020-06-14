@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface TradeRepository  extends JpaRepository<Trade, Integer> {
     List<Trade> getAllByBrokerId(Integer broker_id);
-    List<Trade> getAllByTraderId(@Param("input") Integer trader_id);
+    List<Trade> getAllByBuyerId(Integer trader_id);
+    List<Trade> getAllBySellerId(Integer trader_id);
 }

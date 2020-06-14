@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TraderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TraderClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/TradeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/TradeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/TradeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/ProductController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+  <component name="RunManager" selected="Spring Boot.TradergatewayApplication">
     <configuration name="BrokergatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="brokergateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.brokergateway.BrokergatewayApplication" />
@@ -237,7 +238,7 @@
       <workItem from="1592032255910" duration="28890000" />
       <workItem from="1592097640911" duration="1255000" />
       <workItem from="1592099314852" duration="965000" />
-      <workItem from="1592103039647" duration="16823000" />
+      <workItem from="1592103039647" duration="18381000" />
     </task>
     <servers />
   </component>

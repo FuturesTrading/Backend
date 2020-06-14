@@ -16,8 +16,10 @@ public class ProductController {
 
     @Autowired
     private BrokerClient brokerClient;
-    @GetMapping("/product/broker")
-    public Result<List<JSONObject>> getAllByBroker(@RequestParam Integer brokerId){
-        return ResultUtil.success(brokerClient.getAll());
+
+    @GetMapping("/product")
+    public Result<List<JSONObject>> getAllByBroker(){
+        return ResultUtil.success(brokerClient.getAllProduct());
     }
+
 }

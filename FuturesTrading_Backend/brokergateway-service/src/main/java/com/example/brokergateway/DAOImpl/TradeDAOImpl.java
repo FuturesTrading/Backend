@@ -6,6 +6,7 @@ import com.example.brokergateway.repository.TradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -32,6 +33,9 @@ public class TradeDAOImpl implements TradeDAO {
 
     @Override
     public List<Trade> getByTrader_id(Integer trader_id) {
-        return tradeRepository.getAllByTraderId(trader_id);
+        List<Trade> trades=new ArrayList<>();
+        trades.addAll(tradeRepository.getAllByBuyerId(trader_id));
+        trades.addAll(tradeRepository.getAllBySellerId(trader_id));
+        return trades;
     }
 }
