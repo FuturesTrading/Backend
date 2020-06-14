@@ -1,10 +1,12 @@
 package com.example.tradergateway.service;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.tradergateway.dto.BrokerDTO;
 import com.example.tradergateway.dto.InfoDTO;
 import com.example.tradergateway.dto.OrdersDTO;
 import com.example.tradergateway.dto.TradeDTO;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,9 @@ public interface BrokerClient {
 
     @GetMapping("/broker/brokerId")
     BrokerDTO getBrokerByBrokerId(Integer brokerId);
+
+    @GetMapping("/product/allProduct")
+    List<JSONObject> getAllProduct();
 
     @GetMapping("/orders/trader")
     List<OrdersDTO> getOrdersByTraderId(@RequestParam Integer traderId);

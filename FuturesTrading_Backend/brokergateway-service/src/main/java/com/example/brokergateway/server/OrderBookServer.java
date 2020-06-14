@@ -18,13 +18,7 @@ public class OrderBookServer {
         List<Orders> buy = orderServer.getByBroker_id(broker_id,false,product_id);
         return remote(sell,buy);
     }
-
-    public List<Info> getOrderBookByProductId(Integer productId) {
-        List<Orders> sell = orderServer.getByProductId(true,productId);
-        List<Orders> buy = orderServer.getByProductId(false,productId);
-        return remote(sell,buy);
-    }
-
+    
     private List<Info> remote(List<Orders> sell, List<Orders> buy){
         List<Info> res1 = new ArrayList<>();
         Integer size = sell.size();
