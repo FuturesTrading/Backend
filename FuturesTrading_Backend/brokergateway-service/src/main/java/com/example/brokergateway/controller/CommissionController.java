@@ -31,8 +31,8 @@ public class CommissionController {
     }
 
     @PostMapping("/commission/getAll")
-    public List<Product> get(@RequestParam Integer broker_id){
-        List<Commission> tmp = commissionServer.getAll(broker_id);
+    public List<Product> get(@RequestParam Integer brokerId){
+        List<Commission> tmp = commissionServer.getAll(brokerId);
         List<Product> res = new ArrayList<>();
         for(Commission a:tmp){
             res.add(productServer.getOne(a.getProductId()));

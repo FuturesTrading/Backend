@@ -6,7 +6,6 @@ import com.example.tradergateway.core.processor.ProcessorFactory;
 import com.example.tradergateway.core.sendMessage.SendMessage;
 import com.example.tradergateway.core.sendMessage.SendMessageInstant;
 import com.example.tradergateway.dto.OrdersDTO;
-import com.example.tradergateway.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
