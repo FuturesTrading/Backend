@@ -72,7 +72,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p == null) {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 1, product_id, in_or_out);
-            List<Orders> res = getBuy(orders);
+            List<Orders> res = sort(orders);
             redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
@@ -92,12 +92,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         return ordersRepository.findByBroker_idAndStateAndProduct_id(input, 2);
     }
 
-    private List<Orders> getBuy(List<Orders> orders) {
-        List<Orders> res = new ArrayList<>();
-        for (Orders a : orders) {
-            if (!a.getInOrOut())
-                res.add(a);
-        }
+    private List<Orders> sort(List<Orders> orders) {
         Collections.sort(orders, new Comparator<Orders>() {
             @Override
             public int compare(Orders o1, Orders o2) {
@@ -110,7 +105,7 @@ public class OrdersDAOImpl implements OrdersDAO {
                     return 0;
             }
         });
-        return res;
+        return orders;
     }
 
     @Override
