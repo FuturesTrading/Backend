@@ -59,7 +59,7 @@ public class OrderServer {
                 if (tmp.getPrice() == price) {
                     vol += tmp.getQuantity();
                 } else {
-                    info = new Info(false, vol, price);
+                    info = new Info( vol, price);
                     res1.add(info);
                     vol = 0;
                     price = tmp.getPrice();
@@ -67,7 +67,7 @@ public class OrderServer {
                 loc++;
             }
             if (vol != 0) {
-                info = new Info(false, vol, price);
+                info = new Info( vol, price);
                 res1.add(info);
                 vol = 0;
             }
@@ -82,7 +82,7 @@ public class OrderServer {
                 if (tmp.getPrice() == price) {
                     vol += tmp.getQuantity();
                 } else {
-                    info = new Info(false, vol, price, res2.size() + 1);
+                    info = new Info( vol, price, res2.size() + 1);
                     res2.add(info);
                     vol = 0;
                     price = tmp.getPrice();
@@ -90,7 +90,7 @@ public class OrderServer {
                 loc++;
             }
             if (vol != 0) {
-                info = new Info(false, vol, price);
+                info = new Info( vol, price);
                 res1.add(info);
                 vol = 0;
             }

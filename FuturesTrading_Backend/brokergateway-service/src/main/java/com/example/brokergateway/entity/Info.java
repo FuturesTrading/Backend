@@ -11,25 +11,19 @@ public class Info {
     private String sell_vol;
     private String price;
 
-    public Info(Boolean mark, Integer vol, float price){
-        if(mark){
-            buy_vol = vol.toString();
-        }else{
-            sell_vol = vol.toString();
-        }
+    public Info( Integer vol, float price){
+        sell_vol = vol.toString();
+        buy_vol = "";
         this.price = String.valueOf(price);
         buy_level = "";
         sell_level = "";
     }
 
-    public Info(Boolean mark, Integer vol, float price,Integer level){
-        if(mark){
-            buy_vol = vol.toString();
-            this.buy_level = level.toString();
-        }else{
-            sell_vol = vol.toString();
-            this.sell_level= level.toString();
-        }
+    public Info(Integer vol, float price,Integer level){
+        buy_vol = vol.toString();
+        buy_level = level.toString();
+        sell_level = "";
+        sell_vol = "";
         this.price = String.valueOf(price);
     }
 

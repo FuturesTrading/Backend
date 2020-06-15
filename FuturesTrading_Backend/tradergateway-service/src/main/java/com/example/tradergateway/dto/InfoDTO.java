@@ -13,26 +13,20 @@ public class InfoDTO implements Serializable {
     private String sell_vol;
     private String price;
 
-    public InfoDTO(Boolean mark, Integer vol, float price){
-        if(mark){
-            buy_vol = vol.toString();
-        }else{
-            sell_vol = vol.toString();
-        }
+    public InfoDTO( Integer vol, float price){
+        sell_vol = vol.toString();
+        buy_vol = "";
         this.price = String.valueOf(price);
         buy_level = "";
         sell_level = "";
     }
 
-    public InfoDTO(Boolean mark, Integer vol, float price, Integer level){
-        if(mark){
-            buy_vol = vol.toString();
-        }else{
-            sell_vol = vol.toString();
-        }
-        this.price = String.valueOf(price);
-        this.buy_level = level.toString();
+    public InfoDTO(Integer vol, float price,Integer level){
+        buy_vol = vol.toString();
+        buy_level = level.toString();
         sell_level = "";
+        sell_vol = "";
+        this.price = String.valueOf(price);
     }
 
     public void set(Integer num) {
@@ -47,6 +41,6 @@ public class InfoDTO implements Serializable {
         price=o.getPrice();
     }
     InfoDTO(){
-        
+
     }
 }

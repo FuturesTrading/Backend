@@ -23,8 +23,6 @@ public class OrderBookServer {
     }
     
     private List<Info> remote(List<Orders> sell, List<Orders> buy){
-        List<Orders> sell = getByBroker_id(broker_id, true, product_id);
-        List<Orders> buy = getByBroker_id(broker_id, false, product_id);
         List<Info> res1 = new ArrayList<>();
         Integer size = sell.size();
         Info info;
@@ -37,7 +35,7 @@ public class OrderBookServer {
                 if (tmp.getPrice() == price) {
                     vol += tmp.getQuantity();
                 } else {
-                    info = new Info(false, vol, price);
+                    info = new Info( vol, price);
                     res1.add(info);
                     vol = 0;
                     price = tmp.getPrice();
@@ -45,7 +43,7 @@ public class OrderBookServer {
                 loc++;
             }
             if (vol != 0) {
-                info = new Info(false, vol, price);
+                info = new Info( vol, price);
                 res1.add(info);
                 vol = 0;
             }
@@ -60,7 +58,7 @@ public class OrderBookServer {
                 if (tmp.getPrice() == price) {
                     vol += tmp.getQuantity();
                 } else {
-                    info = new Info(false, vol, price, res2.size() + 1);
+                    info = new Info(vol, price, res2.size() + 1);
                     res2.add(info);
                     vol = 0;
                     price = tmp.getPrice();
@@ -68,12 +66,12 @@ public class OrderBookServer {
                 loc++;
             }
             if (vol != 0) {
-                info = new Info(false, vol, price);
+                info = new Info(vol, price);
                 res1.add(info);
                 vol = 0;
             }
         }
-        res1.addAll(res2);
+//        res1.addAll(res2);
         return res1;
     }
 
