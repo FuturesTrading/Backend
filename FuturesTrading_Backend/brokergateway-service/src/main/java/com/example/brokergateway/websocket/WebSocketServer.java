@@ -75,6 +75,7 @@ public class WebSocketServer {
      */
     public void sendMessage(String name,String jsonMsg){
         List<Session> session=onlineSessions.get(name);
+        if(session==null) return;
         try {
             for(Session a:session){
                 a.getBasicRemote().sendText(jsonMsg);

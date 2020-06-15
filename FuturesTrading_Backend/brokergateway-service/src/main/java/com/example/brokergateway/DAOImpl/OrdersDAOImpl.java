@@ -52,9 +52,15 @@ public class OrdersDAOImpl implements OrdersDAO {
         List<Orders> orders;
         String mark = in_or_out ? "sell " : "buy ";
         Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
-        if (p == null) {
-            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 1, product_id, in_or_out);
-            List<Orders> res = getBuy(orders);
+        if (p == null || p.toString().equals("[]")) {
+            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 2, product_id, in_or_out);
+            System.out.println(broker_id);
+            System.out.println(product_id);
+            System.out.println(in_or_out);
+//            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(1, 1, 2, 1, in_or_out);
+
+            System.out.println(orders.toString());
+            List<Orders> res = sort(orders);
             redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
@@ -69,7 +75,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         List<Orders> orders;
         String mark = in_or_out ? "sell " : "buy ";
         Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
-        if (p == null) {
+        if (p == null || p.toString().equals("[]")) {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 1, product_id, in_or_out);
             List<Orders> res = sort(orders);
@@ -84,12 +90,12 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public List<Orders> getByBroker(Integer input) {
-        return ordersRepository.findByBroker_idAndStateAndProduct_id(input, 1);
+        return ordersRepository.findByBroker_idAndState(input, 1);
     }
 
     @Override
     public List<Orders> getByBroker_handled(Integer input) {
-        return ordersRepository.findByBroker_idAndStateAndProduct_id(input, 2);
+        return ordersRepository.findByBroker_idAndState(input, 2);
     }
 
     private List<Orders> sort(List<Orders> orders) {
@@ -183,7 +189,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         }
         List<Orders> res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                 (broker_id, 1, 3, product_id, orders.getInOrOut());
-        res = getBuy(res);
+        res = sort(res);
         redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         return true;
     }
@@ -196,7 +202,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p == null) {
             res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 3, product_id, in_or_out);
-            res = getBuy(res);
+            res = sort(res);
             redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         } else {
             res = JSONArray.parseArray(p.toString(), Orders.class);

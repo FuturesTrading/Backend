@@ -14,8 +14,11 @@ public class OrderBookServer {
     public OrderServer orderServer;
 
     public List<Info> getOrderBookByBrokerIdAndProductId(Integer broker_id,Integer product_id){
+        System.out.println("im now gengxin");
         List<Orders> sell = orderServer.getByBroker_id(broker_id,true,product_id);
+        System.out.println("sell"+sell.toString());
         List<Orders> buy = orderServer.getByBroker_id(broker_id,false,product_id);
+        System.out.println("buy"+buy.toString());
         return remote(sell,buy);
     }
     
@@ -65,7 +68,6 @@ public class OrderBookServer {
             res1.add(info);
             vol = 0;
         }
-
         res1.addAll(res2);
         return  res1;
     }
