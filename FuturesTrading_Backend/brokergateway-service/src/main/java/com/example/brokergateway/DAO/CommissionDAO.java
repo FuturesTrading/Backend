@@ -7,5 +7,5 @@ import java.util.List;
 public interface CommissionDAO {
     Boolean addOne(Commission input);
     List<Commission> getAll(Integer broker_id);
-    Commission getOne(Integer broker_id,Integer product_id);
+    Integer getOne(Integer broker_id,Integer product_id);
 }

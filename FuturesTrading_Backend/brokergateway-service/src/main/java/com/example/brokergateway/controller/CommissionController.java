@@ -7,6 +7,7 @@ import com.example.brokergateway.server.CommissionServer;
 import com.example.brokergateway.server.ProductServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,4 +39,6 @@ public class CommissionController {
         }
         return res;
     }
+
+
 }

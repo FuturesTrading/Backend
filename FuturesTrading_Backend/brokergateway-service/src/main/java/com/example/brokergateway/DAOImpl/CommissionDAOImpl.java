@@ -28,8 +28,8 @@ public class CommissionDAOImpl implements CommissionDAO {
     }
 
     @Override
-    public Commission getOne(Integer broker_id, Integer product_id) {
-        return commissionRepository.getOne(broker_id,product_id);
+    public Integer getOne(Integer broker_id, Integer product_id) {
+        return commissionRepository.getOne(broker_id,product_id).getPercent();
     }
 
 
