@@ -1168,462 +1168,453 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="286" name="trader_id">
+    <column id="298" parent="286" name="broker_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="286" name="broker_id">
+    <column id="299" parent="286" name="percent">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="286" name="order_id">
+    <column id="300" parent="286" name="product_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="286" name="percent">
-      <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="302" parent="286" name="FK_Relationship_14">
-      <ColNames>trader_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="303" parent="286" name="FK_Relationship_15">
+    <index id="301" parent="286" name="FK_Relationship_15">
       <ColNames>broker_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="304" parent="286" name="FK_Relationship_13">
-      <ColNames>order_id</ColNames>
+    <index id="302" parent="286" name="product_id">
+      <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="305" parent="286" name="PRIMARY">
+    <key id="303" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>commission_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="306" parent="286" name="FK_Relationship_14">
-      <ColNames>trader_id</ColNames>
-      <RefTableName>trader</RefTableName>
-      <RefColNames>trader_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="307" parent="286" name="FK_Relationship_15">
+    <foreign-key id="304" parent="286" name="FK_Relationship_15">
       <ColNames>broker_id</ColNames>
       <RefTableName>broker</RefTableName>
       <RefColNames>broker_id</RefColNames>
     </foreign-key>
-    <foreign-key id="308" parent="286" name="FK_Relationship_13">
-      <ColNames>order_id</ColNames>
-      <RefTableName>orders</RefTableName>
-      <RefColNames>order_id</RefColNames>
+    <foreign-key id="305" parent="286" name="commission_ibfk_1">
+      <ColNames>product_id</ColNames>
+      <RefTableName>product</RefTableName>
+      <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="309" parent="287" name="id">
+    <column id="306" parent="287" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="287" name="broker_id">
+    <column id="307" parent="287" name="broker_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="287" name="cancel_id">
+    <column id="308" parent="287" name="cancel_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="287" name="in_or_out">
+    <column id="309" parent="287" name="in_or_out">
       <Position>4</Position>
       <DataType>bit(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="287" name="order_id">
+    <column id="310" parent="287" name="order_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="287" name="price">
+    <column id="311" parent="287" name="price">
       <Position>6</Position>
       <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="287" name="product_id">
+    <column id="312" parent="287" name="product_id">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="287" name="quantity">
+    <column id="313" parent="287" name="quantity">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="287" name="release_time">
+    <column id="314" parent="287" name="release_time">
       <Position>9</Position>
       <DataType>time|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="287" name="remain">
+    <column id="315" parent="287" name="remain">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="287" name="send_time">
+    <column id="316" parent="287" name="send_time">
       <Position>11</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="287" name="state">
+    <column id="317" parent="287" name="state">
       <Position>12</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="287" name="trader_id">
+    <column id="318" parent="287" name="trader_id">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="287" name="class">
+    <column id="319" parent="287" name="class">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="323" parent="287" name="PRIMARY">
+    <key id="320" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="324" parent="288" name="order_id">
+    <column id="321" parent="288" name="order_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="288" name="release_time">
+    <column id="322" parent="288" name="release_time">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="288" name="deadline">
+    <column id="323" parent="288" name="deadline">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="288" name="quantity">
+    <column id="324" parent="288" name="quantity">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="288" name="product_id">
+    <column id="325" parent="288" name="product_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="288" name="trader_id">
+    <column id="326" parent="288" name="trader_id">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="288" name="broker_id">
+    <column id="327" parent="288" name="broker_id">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="288" name="state">
+    <column id="328" parent="288" name="state">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="288" name="class">
+    <column id="329" parent="288" name="class">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="288" name="in_or_out">
+    <column id="330" parent="288" name="in_or_out">
       <Position>10</Position>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="288" name="remain">
+    <column id="331" parent="288" name="remain">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="288" name="price">
+    <column id="332" parent="288" name="price">
       <Position>12</Position>
       <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="288" name="cancel_id">
+    <column id="333" parent="288" name="cancel_id">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="288" name="period">
+    <column id="334" parent="288" name="period">
       <Position>14</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="288" name="product_name">
+    <column id="335" parent="288" name="product_name">
       <Position>15</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="339" parent="288" name="FK_Relationship_1">
+    <index id="336" parent="288" name="FK_Relationship_1">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="340" parent="288" name="FK_Relationship_2">
+    <index id="337" parent="288" name="FK_Relationship_2">
       <ColNames>trader_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="341" parent="288" name="FK_Relationship_3">
+    <index id="338" parent="288" name="FK_Relationship_3">
       <ColNames>broker_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="342" parent="288" name="FK_Relationship_8">
+    <index id="339" parent="288" name="FK_Relationship_8">
       <ColNames>cancel_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="343" parent="288" name="PRIMARY">
+    <key id="340" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>order_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="344" parent="288" name="FK_Relationship_1">
+    <foreign-key id="341" parent="288" name="FK_Relationship_1">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <foreign-key id="345" parent="288" name="FK_Relationship_2">
+    <foreign-key id="342" parent="288" name="FK_Relationship_2">
       <ColNames>trader_id</ColNames>
       <RefTableName>trader</RefTableName>
       <RefColNames>trader_id</RefColNames>
     </foreign-key>
-    <foreign-key id="346" parent="288" name="FK_Relationship_3">
+    <foreign-key id="343" parent="288" name="FK_Relationship_3">
       <ColNames>broker_id</ColNames>
       <RefTableName>broker</RefTableName>
       <RefColNames>broker_id</RefColNames>
     </foreign-key>
-    <foreign-key id="347" parent="288" name="FK_Relationship_8">
+    <foreign-key id="344" parent="288" name="FK_Relationship_8">
       <ColNames>cancel_id</ColNames>
       <RefTableName>orders</RefTableName>
       <RefColNames>order_id</RefColNames>
     </foreign-key>
-    <column id="348" parent="289" name="id">
+    <column id="345" parent="289" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="289" name="order_id">
+    <column id="346" parent="289" name="order_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="289" name="release_time">
+    <column id="347" parent="289" name="release_time">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="289" name="deadline">
+    <column id="348" parent="289" name="deadline">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="289" name="quantity">
+    <column id="349" parent="289" name="quantity">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="289" name="product_id">
+    <column id="350" parent="289" name="product_id">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="289" name="trader_id">
+    <column id="351" parent="289" name="trader_id">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="289" name="broker_id">
+    <column id="352" parent="289" name="broker_id">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="289" name="state">
+    <column id="353" parent="289" name="state">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="289" name="class">
+    <column id="354" parent="289" name="class">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="289" name="in_or_out">
+    <column id="355" parent="289" name="in_or_out">
       <Position>11</Position>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="289" name="remain">
+    <column id="356" parent="289" name="remain">
       <Position>12</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="289" name="price">
+    <column id="357" parent="289" name="price">
       <Position>13</Position>
       <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="289" name="cancel_id">
+    <column id="358" parent="289" name="cancel_id">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="289" name="send_time">
+    <column id="359" parent="289" name="send_time">
       <Position>15</Position>
       <DataType>char(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="363" parent="289" name="PRIMARY">
+    <key id="360" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="364" parent="290" name="product_id">
+    <column id="361" parent="290" name="product_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="290" name="period">
+    <column id="362" parent="290" name="period">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="290" name="product_name">
+    <column id="363" parent="290" name="product_name">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="367" parent="290" name="PRIMARY">
+    <key id="364" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>product_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="368" parent="291" name="trade_id">
+    <column id="365" parent="291" name="trade_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="291" name="broker_id">
+    <column id="366" parent="291" name="broker_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="291" name="buyer_id">
+    <column id="367" parent="291" name="buyer_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="291" name="seller_id">
+    <column id="368" parent="291" name="seller_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="291" name="time">
+    <column id="369" parent="291" name="time">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="291" name="product_id">
+    <column id="370" parent="291" name="product_id">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="291" name="quantity">
+    <column id="371" parent="291" name="quantity">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="291" name="direction">
+    <column id="372" parent="291" name="direction">
       <Position>8</Position>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="291" name="commissionCount">
+    <column id="373" parent="291" name="commissionCount">
       <Position>9</Position>
       <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="377" parent="291" name="FK_Relationship_12">
+    <column id="374" parent="291" name="commission_count">
+      <Position>10</Position>
+      <DataType>float|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="375" parent="291" name="FK_Relationship_12">
       <ColNames>broker_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="378" parent="291" name="FK_Relationship_10">
+    <index id="376" parent="291" name="FK_Relationship_10">
       <ColNames>buyer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="379" parent="291" name="FK_Relationship_11">
+    <index id="377" parent="291" name="FK_Relationship_11">
       <ColNames>seller_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="380" parent="291" name="FK_Relationship_9">
+    <index id="378" parent="291" name="FK_Relationship_9">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="381" parent="291" name="PRIMARY">
+    <key id="379" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>trade_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="382" parent="291" name="FK_Relationship_12">
+    <foreign-key id="380" parent="291" name="FK_Relationship_12">
       <ColNames>broker_id</ColNames>
       <RefTableName>broker</RefTableName>
       <RefColNames>broker_id</RefColNames>
     </foreign-key>
-    <foreign-key id="383" parent="291" name="FK_Relationship_10">
+    <foreign-key id="381" parent="291" name="FK_Relationship_10">
       <ColNames>buyer_id</ColNames>
       <RefTableName>trader</RefTableName>
       <RefColNames>trader_id</RefColNames>
     </foreign-key>
-    <foreign-key id="384" parent="291" name="FK_Relationship_11">
+    <foreign-key id="382" parent="291" name="FK_Relationship_11">
       <ColNames>seller_id</ColNames>
       <RefTableName>trader</RefTableName>
       <RefColNames>trader_id</RefColNames>
     </foreign-key>
-    <foreign-key id="385" parent="291" name="FK_Relationship_9">
+    <foreign-key id="383" parent="291" name="FK_Relationship_9">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="386" parent="292" name="trader_id">
+    <column id="384" parent="292" name="trader_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="292" name="trader_name">
+    <column id="385" parent="292" name="trader_name">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="292" name="trader_password">
+    <column id="386" parent="292" name="trader_password">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="389" parent="292" name="PRIMARY">
+    <key id="387" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>trader_id</ColNames>
       <Primary>1</Primary>

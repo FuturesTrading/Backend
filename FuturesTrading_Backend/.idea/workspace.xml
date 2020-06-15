@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e668ec1f-12ed-4453-9872-30a6b9962fc7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e668ec1f-12ed-4453-9872-30a6b9962fc7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/entity/Trade.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/entity/Trade.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +37,13 @@
         <item name="futures@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="futures: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="futures@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="futures: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="commission: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -81,7 +88,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/GUI_test_2/GUI_test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../hw2/Backend/Travels" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -231,7 +238,7 @@
       <workItem from="1592097640911" duration="1255000" />
       <workItem from="1592099314852" duration="965000" />
       <workItem from="1592103039647" duration="34243000" />
-      <workItem from="1592178990364" duration="5950000" />
+      <workItem from="1592178990364" duration="7816000" />
     </task>
     <servers />
   </component>
