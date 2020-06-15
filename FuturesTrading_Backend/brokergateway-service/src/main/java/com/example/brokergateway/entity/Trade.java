@@ -46,7 +46,7 @@ public class Trade implements Serializable {
 
     @Basic
     @Column(name = "commissionCount")
-    private Integer commissionCount;
+    private Float commissionCount;
 
     public Trade(){
 
@@ -58,7 +58,7 @@ public class Trade implements Serializable {
                  Integer product_id,
                  Integer quantity,
                  Boolean direction,
-                 Integer commissionCount){
+                 Float commissionCount){
         this.brokerId = broker_id;
         this.buyerId = buyer_id;
         this.sellerId = seller_id;
