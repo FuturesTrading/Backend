@@ -35,6 +35,5 @@ public class KafkaCon {
         Integer type = orders.getVariety();
         orderService.addOne(orders);
         orderService.handle(orders,type);
-
     }
 }
