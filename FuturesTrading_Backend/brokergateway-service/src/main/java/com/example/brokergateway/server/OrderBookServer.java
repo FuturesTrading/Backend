@@ -23,53 +23,58 @@ public class OrderBookServer {
     }
     
     private List<Info> remote(List<Orders> sell, List<Orders> buy){
+        List<Orders> sell = getByBroker_id(broker_id, true, product_id);
+        List<Orders> buy = getByBroker_id(broker_id, false, product_id);
         List<Info> res1 = new ArrayList<>();
         Integer size = sell.size();
         Info info;
         float price = 0;
         Integer vol = 0, loc = 0;
-        while(loc < size){
+        if(size != 0){
             price=sell.get(0).getPrice();
-            Orders tmp = sell.get(loc);
-            if(tmp.getPrice() == price){
-                vol += tmp.getQuantity();
-            }else{
-                info = new Info(false,vol,price);
+            while (loc < size) {
+                Orders tmp = sell.get(loc);
+                if (tmp.getPrice() == price) {
+                    vol += tmp.getQuantity();
+                } else {
+                    info = new Info(false, vol, price);
+                    res1.add(info);
+                    vol = 0;
+                    price = tmp.getPrice();
+                }
+                loc++;
+            }
+            if (vol != 0) {
+                info = new Info(false, vol, price);
                 res1.add(info);
                 vol = 0;
-                price = tmp.getPrice();
             }
-            loc++;
+            addLevel(res1);
         }
-        if(vol != 0){
-            info = new Info(false,vol,price);
-            res1.add(info);
-            vol = 0;
-        }
-        addLevel(res1);
-
         List<Info> res2 = new ArrayList<>();
         size = buy.size();
         price = 0;
-        while(loc < size){
-            Orders tmp = buy.get(loc);
-            if(tmp.getPrice() == price){
-                vol += tmp.getQuantity();
-            }else{
-                info = new Info(false,vol,price,res2.size()+1);
-                res2.add(info);
-                vol = 0;
-                price = tmp.getPrice();
+        if(size != 0) {
+            while (loc < size) {
+                Orders tmp = buy.get(loc);
+                if (tmp.getPrice() == price) {
+                    vol += tmp.getQuantity();
+                } else {
+                    info = new Info(false, vol, price, res2.size() + 1);
+                    res2.add(info);
+                    vol = 0;
+                    price = tmp.getPrice();
+                }
+                loc++;
             }
-            loc++;
-        }
-        if(vol != 0){
-            info = new Info(false,vol,price);
-            res1.add(info);
-            vol = 0;
+            if (vol != 0) {
+                info = new Info(false, vol, price);
+                res1.add(info);
+                vol = 0;
+            }
         }
         res1.addAll(res2);
-        return  res1;
+        return res1;
     }
 
     public void addLevel(List<Info> res){

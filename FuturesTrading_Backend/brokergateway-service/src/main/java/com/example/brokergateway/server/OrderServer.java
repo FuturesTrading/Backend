@@ -94,7 +94,6 @@ public class OrderServer {
                 res1.add(info);
                 vol = 0;
             }
-            addLevel(res2);
         }
         res1.addAll(res2);
         return String.valueOf(JSONArray.parseArray(JSON.toJSONString(res1)));
