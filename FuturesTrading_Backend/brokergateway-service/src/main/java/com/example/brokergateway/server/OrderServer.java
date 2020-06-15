@@ -137,6 +137,7 @@ public class OrderServer {
 
     public Boolean handleCease1(Orders input) {
         List<Orders> res = getByBroker_id(input.getBrokerId(), !input.getInOrOut(), input.getProductId());
+        if(!input.getInOrOut()) Collections.reverse(res);
         Integer remain = input.getRemain();
         for (Orders a : res) {
             Integer num = a.getRemain();
