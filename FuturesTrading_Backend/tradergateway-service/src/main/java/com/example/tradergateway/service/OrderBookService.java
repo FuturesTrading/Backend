@@ -28,7 +28,8 @@ public class OrderBookService {
             orderBook = new OrderBook(productId, brokerId);
         }
         for (InfoDTO infoDTO : infos) {
-            if (infoDTO.getBuy_level() != null && !infoDTO.getBuy_level().equals("")) {
+            System.out.println(infoDTO.toString());
+            if (infoDTO.getBuy_level() != null && !infoDTO.getBuy_level().equals("") && infoDTO.getBuy_level().equals("0")) {
                 orderBook.addBuy(Float.parseFloat(infoDTO.getPrice()), Integer.parseInt(infoDTO.getBuy_vol()));
             } else {
                 orderBook.addSell(Float.parseFloat(infoDTO.getPrice()), Integer.parseInt(infoDTO.getSell_vol()));
