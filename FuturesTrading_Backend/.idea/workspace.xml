@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="" />
+    <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/brokergateway_Web_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/configuration/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/TraderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/TraderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/dao/ProductDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrdersDTOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrdersDTOService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/TraderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/TraderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +56,7 @@
         <item name="futures@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="futures: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="broker: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="commission: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -95,7 +111,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../hw2/Backend/Travels" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.45591646" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -137,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BrokergatewayApplication">
+  <component name="RunManager" selected="Spring Boot.ZuulApplication">
     <configuration name="BrokergatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="brokergateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.brokergateway.BrokergatewayApplication" />
@@ -208,17 +224,7 @@
       <serviceView>
         <option name="contentProportion" value="0.3463687" />
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6717de7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6717de7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@659401b5" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -244,6 +250,7 @@
       <workItem from="1592103039647" duration="34243000" />
       <workItem from="1592178990364" duration="25337000" />
       <workItem from="1592178990364" duration="18642000" />
+      <workItem from="1592238405183" duration="6888000" />
     </task>
     <servers />
   </component>

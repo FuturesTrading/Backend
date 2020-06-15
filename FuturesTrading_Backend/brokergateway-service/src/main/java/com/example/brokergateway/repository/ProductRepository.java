@@ -14,4 +14,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
             "WHERE product_id = :a " ,
             nativeQuery = true)
     Product getOne(@Param("a")Integer product_id);
+
 }

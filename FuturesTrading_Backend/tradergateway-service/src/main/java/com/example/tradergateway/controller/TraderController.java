@@ -9,7 +9,6 @@ import com.example.tradergateway.service.TraderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,15 +17,13 @@ public class TraderController {
     private TraderService traderService;
 
     @PostMapping(value="/trader")
-    public Result traderSignUp(@RequestBody Trader trader) throws ServiceException{
-        traderService.traderSignUp(trader);
-        return ResultUtil.success();
+    public Result<Integer> traderSignUp(@RequestBody Trader trader) throws ServiceException{
+        return ResultUtil.success(traderService.traderSignUp(trader));
     }
 
     @PostMapping(value = "/newtrader")
-    public Result traderRegister(@RequestBody Trader trader) throws ServiceException {
-        traderService.traderRegister(trader);
-        return ResultUtil.success();
+    public Result<Integer> traderRegister(@RequestBody Trader trader) throws ServiceException {
+        return ResultUtil.success(traderService.traderRegister(trader));
     }
 
 }

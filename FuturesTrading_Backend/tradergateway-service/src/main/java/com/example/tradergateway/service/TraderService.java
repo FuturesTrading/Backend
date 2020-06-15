@@ -19,7 +19,7 @@ public class TraderService {
     @Autowired
     private TraderDao traderDao;
 
-    public void traderSignUp(Trader trader){
+    public Integer traderSignUp(Trader trader){
         String name=trader.getTraderName();
         String pwd=trader.getTraderPassword();
         if(name.equals("")||pwd.equals("")){
@@ -33,9 +33,10 @@ public class TraderService {
         if(!trader1.getTraderPassword().equals(pwd)){
             throw new ServiceException(ResultCode.WRONG_ACCOUNTORPASSWORD);
         }
+        return trader1.getTraderId();
     }
 
-    public void traderRegister(Trader trader) {
+    public Integer traderRegister(Trader trader) {
         String name=trader.getTraderName();
         String pwd=trader.getTraderPassword();
         if(name.equals("")||pwd.equals("")){
@@ -43,7 +44,8 @@ public class TraderService {
         }
         List<Trader> traders=traderDao.getByTraderName(name);
         if( traders==null || traders.size()==0){
-            traderDao.save(trader);
+            Trader trader1=traderDao.save(trader);
+            return trader1.getTraderId();
         }
         else{
             throw new ServiceException(ResultCode.EXIST_ACCOUNT);

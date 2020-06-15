@@ -21,18 +21,6 @@ public class OrderBookController {
     @Autowired
     private WebSocketServer webSocketServer;
 
-//    //111
-//    @GetMapping(value="/orderBook/buyer")
-//    public Result<List<InfoDTO>> getBuyOrderBook(@RequestParam Integer brokerId, @RequestParam Integer productId){
-//        return ResultUtil.success(orderBookService.getBuyOrderBook(productId,brokerId));
-//    }
-//
-//    //111
-//    @GetMapping(value="/orderBook/seller")
-//    public Result<List<InfoDTO>> getSellOrderBook(@RequestParam  Integer brokerId, @RequestParam  Integer productId){
-//        return ResultUtil.success(orderBookService.getSellOrderBook(productId,brokerId));
-//    }
-
     @GetMapping(value = "/orderBook")
     public Result<List<InfoDTO>> getOrderBook(@RequestParam  Integer brokerId, @RequestParam  Integer productId){
         return ResultUtil.success(orderBookService.getOrderBook(productId,brokerId));
