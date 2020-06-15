@@ -51,23 +51,23 @@ public class OrdersDAOImpl implements OrdersDAO {
     public List<Orders> getByBroker(Integer broker_id, Boolean in_or_out, Integer product_id) {
         List<Orders> orders;
         String mark = in_or_out ? "sell " : "buy ";
-        Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
-        if (p == null || p.toString().equals("[]")) {
-            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 2, product_id, in_or_out);
-            System.out.println(broker_id);
-            System.out.println(product_id);
-            System.out.println(in_or_out);
+//        Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
+//        if (p == null || p.toString().equals("[]")) {
+        orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 2, product_id, in_or_out);
+        System.out.println(broker_id);
+        System.out.println(product_id);
+        System.out.println(in_or_out);
 //            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(1, 1, 2, 1, in_or_out);
 
-            System.out.println(orders.toString());
-            List<Orders> res = sort(orders);
-            redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
-            return res;
+        System.out.println(orders.toString());
+        List<Orders> res = sort(orders);
+        redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
+        return res;
 
-        } else {
-            orders = JSONArray.parseArray(p.toString(), Orders.class);
-            return orders;
-        }
+//        } else {
+//            orders = JSONArray.parseArray(p.toString(), Orders.class);
+//            return orders;
+//        }
     }
 
     @Override

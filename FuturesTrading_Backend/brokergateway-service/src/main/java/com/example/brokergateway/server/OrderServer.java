@@ -61,10 +61,11 @@ public class OrderServer {
                 } else {
                     info = new Info( vol, price);
                     res1.add(info);
-                    vol = 0;
+                    vol = tmp.getQuantity();
                     price = tmp.getPrice();
                 }
                 loc++;
+//                System.out.println("sell "+"loc: "+loc+"price: "+price+"vol"+vol);
             }
             if (vol != 0) {
                 info = new Info( vol, price);
@@ -75,8 +76,9 @@ public class OrderServer {
         }
         List<Info> res2 = new ArrayList<>();
         size = buy.size();
-        price = 0;
+        loc=0;
         if(size != 0) {
+            price = buy.get(0).getPrice();
             while (loc < size) {
                 Orders tmp = buy.get(loc);
                 if (tmp.getPrice() == price) {
@@ -84,14 +86,15 @@ public class OrderServer {
                 } else {
                     info = new Info( vol, price, res2.size() + 1);
                     res2.add(info);
-                    vol = 0;
+                    vol = tmp.getQuantity();
                     price = tmp.getPrice();
                 }
                 loc++;
+//                System.out.println("buy "+"loc: "+loc+"level: "+res2.size()+"price: "+price+"vol"+vol);
             }
             if (vol != 0) {
-                info = new Info( vol, price);
-                res1.add(info);
+                info = new Info( vol, price,res2.size()+1);
+                res2.add(info);
                 vol = 0;
             }
         }
