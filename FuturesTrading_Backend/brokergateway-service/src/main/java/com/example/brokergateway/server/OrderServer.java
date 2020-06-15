@@ -202,7 +202,9 @@ public class OrderServer {
                             seller_id,
                             input.getProductId(),
                             business,
-                            input.getInOrOut());
+                            input.getInOrOut(),
+                            commissionDAO.getOne(input.getBrokerId(),input.getProductId()),
+                            a.getPrice());
                     tradeDAO.addOne(trade);
                     if (business == remain)
                         break;
