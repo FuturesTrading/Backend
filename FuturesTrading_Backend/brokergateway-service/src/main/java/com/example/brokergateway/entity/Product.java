@@ -22,4 +22,7 @@ public class Product implements Serializable {
     @Column(name = "product_name")
     private String  productName;
 
+    public Product(){
+
+    }
 }

@@ -12,10 +12,9 @@ import java.util.List;
 public interface CommissionRepository extends JpaRepository<Commission, Integer> {
 
     @Query(value = "SELECT * FROM commission " +
-            "WHERE broker_id = :a " +
-            "AND product_id = :b",
+            "WHERE commission_id = :a ",
             nativeQuery = true)
-    Commission getOne(@Param("a")Integer broker_id, @Param("b")Integer product_id);
+    Commission getOne(@Param("a")Integer commission_id);
 
     @Query(value = "SELECT * FROM commission " +
             "WHERE broker_id = :a " ,

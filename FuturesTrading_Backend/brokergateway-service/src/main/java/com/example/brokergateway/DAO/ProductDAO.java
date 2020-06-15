@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ProductDAO {
     Product getOne(Integer input);
-    List<Product> getAll();
+    List<Product> getAll(Integer broker_id);
     Boolean addOne(Product input);
 }
