@@ -69,5 +69,21 @@ public class Trade implements Serializable {
         this.commissionCount=commissionCount;
     }
 
+    public Trade(Integer broker_id,
+                 Integer buyer_id,
+                 Integer seller_id,
+                 Integer product_id,
+                 Integer quantity,
+                 Boolean direction){
+        this.brokerId = broker_id;
+        this.buyerId = buyer_id;
+        this.sellerId = seller_id;
+        this.time = new Timestamp(System.currentTimeMillis());
+        this.productId = product_id;
+        this.quantity = quantity;
+        this.direction = direction;
+        this.commissionCount=0F;
+    }
+
 
 }
