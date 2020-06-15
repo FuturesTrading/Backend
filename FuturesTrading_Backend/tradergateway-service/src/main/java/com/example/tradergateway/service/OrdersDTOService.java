@@ -33,14 +33,14 @@ public class OrdersDTOService {
     private ProductService productService;
 
     public Boolean createOrderWithStrategy(OrdersDTO order, ProcessorFactory.Parameter pp, String startTime, String endTime,Integer intervalMinute) throws ParseException {
-        Product product=new Product();
-        String name=order.getProductName();
-        String period=order.getPeriod();
-        if(period==null || name==null) return false;
-        product.setPeriod(period);
-        product.setProductName(name);
-        Integer id=productService.addProduct(product);
-        order.setProductId(id);
+//        Product product=new Product();
+//        String name=order.getProductName();
+//        String period=order.getPeriod();
+//        if(period==null || name==null) return false;
+//        product.setPeriod(period);
+//        product.setProductName(name);
+//        Integer id=productService.addProduct(product);
+//        order.setProductId(id);
         Processor processor = processorFactory.create(pp);
         List<OrdersDTO> orders = processor.process(order);
         if(pp.getStrategy().equals(TWAP))

@@ -18,7 +18,7 @@ public class OrderBookController {
     private OrderBookService orderBookService;
 
     @GetMapping(value = "/orderBook")
-    public Result<List<OrdersDTO>> getOrderBook(@RequestParam  Integer brokerId){
+    public Result<List<OrdersDTO>> getOrderBook(@RequestParam Integer brokerId){
         return ResultUtil.success(orderBookService.getOrderBookByBrokerId(brokerId));
     }
 

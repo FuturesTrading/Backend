@@ -20,5 +20,4 @@ public class ProductController {
     public Result<List<Product>> getAllByBroker(){
         return ResultUtil.success(productService.getAllProduct());
     }
-
 }
