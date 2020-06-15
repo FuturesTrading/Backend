@@ -183,7 +183,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         }
         List<Orders> res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                 (broker_id, 1, 3, product_id, orders.getInOrOut());
-        res = getBuy(res);
+        res = sort(res);
         redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         return true;
     }
