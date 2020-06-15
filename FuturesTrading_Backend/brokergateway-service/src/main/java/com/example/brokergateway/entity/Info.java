@@ -25,12 +25,12 @@ public class Info {
     public Info(Boolean mark, Integer vol, float price,Integer level){
         if(mark){
             buy_vol = vol.toString();
+            this.buy_level = level.toString();
         }else{
             sell_vol = vol.toString();
+            this.sell_level= level.toString();
         }
         this.price = String.valueOf(price);
-        this.buy_level = level.toString();
-        sell_level = "";
     }
 
     public void set(Integer num){
