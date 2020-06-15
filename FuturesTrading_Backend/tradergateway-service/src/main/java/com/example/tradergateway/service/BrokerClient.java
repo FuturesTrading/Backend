@@ -1,9 +1,7 @@
 package com.example.tradergateway.service;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.tradergateway.dto.BrokerDTO;
-import com.example.tradergateway.dto.InfoDTO;
 import com.example.tradergateway.dto.OrdersDTO;
 import com.example.tradergateway.dto.TradeDTO;
 
@@ -24,8 +22,8 @@ public interface BrokerClient {
     @GetMapping("/orders/trader")
     List<OrdersDTO> getOrdersByTraderId(@RequestParam Integer traderId);
 
-    @GetMapping(value = "/orderBook/broker/product")
-    List<InfoDTO> getOrderBookByBrokerIdAndProductId(@RequestParam Integer brokerId, @RequestParam Integer productId);
+    @GetMapping("/getOrders_handling")
+    List<OrdersDTO> getOrderBookByBrokerId(@RequestParam Integer brokerId);
 
     @GetMapping(value = "/trade/getByTrader")
     List<TradeDTO> getTradeByTraderId(@RequestParam Integer traderId);

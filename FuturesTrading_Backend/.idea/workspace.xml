@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e668ec1f-12ed-4453-9872-30a6b9962fc7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e668ec1f-12ed-4453-9872-30a6b9962fc7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/BrokerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/BrokerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/TradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/TradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderBookServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderBookServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBlotterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBlotterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/OrdersDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/OrdersDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderBookController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderBookServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TraderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/TraderClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/dto/InfoDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/Market.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/entity/OrderBook.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrderBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BrokergatewayApplication">
+  <component name="RunManager" selected="Spring Boot.TradergatewayApplication">
     <configuration name="BrokergatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="brokergateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.brokergateway.BrokergatewayApplication" />
@@ -214,7 +214,22 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6717de7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1a0f3754" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@20d68f4e" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6717de7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@475fa527" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6717de7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@142dad8" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6717de7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7d3855e" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -240,7 +255,7 @@
       <workItem from="1592097640911" duration="1255000" />
       <workItem from="1592099314852" duration="965000" />
       <workItem from="1592103039647" duration="34243000" />
-      <workItem from="1592178990364" duration="18642000" />
+      <workItem from="1592178990364" duration="22583000" />
     </task>
     <servers />
   </component>
