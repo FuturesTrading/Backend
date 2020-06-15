@@ -15,6 +15,8 @@ public interface TraderClient {
     Result addTrade(@RequestBody Trade trade);
 
     @GetMapping(value = "/orderBook/new")
-    Result orderBookUpdate(@RequestParam Integer brokerId);
+    Result orderBookUpdateNew(@RequestParam Integer brokerId, @RequestParam Integer productId, @RequestParam Integer count, @RequestParam Float price, @RequestParam Boolean in_or_out);
 
+    @GetMapping(value = "/orderBook/none")
+    Result orderBookUpdateDelete(@RequestParam Integer brokerId, @RequestParam Integer productId,@RequestParam Integer count,@RequestParam Float price,@RequestParam Boolean in_or_out);
 }

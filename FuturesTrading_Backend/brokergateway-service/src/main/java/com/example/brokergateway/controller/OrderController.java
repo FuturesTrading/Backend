@@ -23,8 +23,8 @@ public class OrderController {
     }
     
     @GetMapping("/getOrders_handling")
-    public List<Orders> getAll(@RequestParam Integer brokerId){
-        return orderServer.getByBroker_id(brokerId);
+    public List<Orders> getAll(@RequestParam Integer broker_id){
+        return orderServer.getByBroker_id(broker_id);
     }
 
     @GetMapping("/getOrders_handled")
