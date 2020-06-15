@@ -171,9 +171,14 @@ public class OrderServer {
                     a.getPrice());
             tradeDAO.addOne(trade);
             traderClient.addTrade(trade);
-            if (business == remain)
+            if (business == remain){
+                webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
                 return true;
+            }
         }
+
+        webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
+
         return false;
     }
 
@@ -218,9 +223,16 @@ public class OrderServer {
                             commissionDAO.getOne(input.getBrokerId(),input.getProductId()),
                             a.getPrice());
                     tradeDAO.addOne(trade);
-                    if (business == remain)
+                    if (business == remain){
+
+                        webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
+
                         break;
+                    }
                 }
+
+                webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
+
                 break;
             case 3://stop Order\Cease Order
                 break;
