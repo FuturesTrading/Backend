@@ -35,7 +35,7 @@ public class OrderServer {
     public Boolean addOne(Orders input) {
         Boolean state = ordersDAO.addOne(input);
         if(input.getVariety() == 1){
-            traderClient.orderBookUpdateNew(input.getBrokerId(), input.getProductId(),input.getQuantity(),input.getPrice(), input.getInOrOut());
+            traderClient.orderBookUpdate(input.getBrokerId());
         }
         if (state) {
             handleCease(input.getBrokerId(), input.getProductId(), input.getInOrOut());
@@ -145,7 +145,7 @@ public class OrderServer {
                 business = num;
             }
             ordersDAO.decrease(a.getOrderId(), business);
-            traderClient.orderBookUpdateDelete(input.getBrokerId(),input.getProductId(),business,a.getPrice(),a.getInOrOut());
+            traderClient.orderBookUpdate(input.getBrokerId());
             ordersDAO.decrease(input.getOrderId(), business);
             Integer buyer_id, seller_id;
             if (input.getInOrOut()) {

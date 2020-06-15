@@ -54,7 +54,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
         if (p == null) {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 1, product_id, in_or_out);
-            List<Orders> res = sort(orders);
+            List<Orders> res = getsort(orders);
             redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
@@ -72,7 +72,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p == null) {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 1, product_id, in_or_out);
-            List<Orders> res = sort(orders);
+            List<Orders> res = getsort(orders);
             redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
@@ -92,7 +92,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         return ordersRepository.findByBroker_idAndStateAndProduct_id(input, 2);
     }
 
-    private List<Orders> sort(List<Orders> orders) {
+    private List<Orders> getsort(List<Orders> orders) {
         Collections.sort(orders, new Comparator<Orders>() {
             @Override
             public int compare(Orders o1, Orders o2) {
@@ -183,7 +183,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         }
         List<Orders> res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                 (broker_id, 1, 3, product_id, orders.getInOrOut());
-        res = sort(res);
+        res = getsort(res);
         redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         return true;
     }
@@ -196,7 +196,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p == null) {
             res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 3, product_id, in_or_out);
-            res = sort(res);
+            res = getsort(res);
             redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         } else {
             res = JSONArray.parseArray(p.toString(), Orders.class);
