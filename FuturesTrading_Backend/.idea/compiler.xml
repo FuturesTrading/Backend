@@ -8,15 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
-        <module name="tradergateway-service" />
-        <module name="common" />
-        <module name="FuturesTrading_Backend" />
-        <module name="register-server" />
-        <module name="brokergateway" />
-        <module name="register" />
-        <module name="tradergateway" />
-        <module name="brokergateway-service" />
         <module name="zuul" />
+        <module name="common" />
+        <module name="register-server" />
+        <module name="tradergateway" />
+        <module name="brokergateway" />
+        <module name="tradergateway-service" />
+        <module name="register" />
+        <module name="brokergateway-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

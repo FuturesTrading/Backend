@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Scope("singleton")
@@ -15,7 +16,7 @@ public class BrokerController {
     public BrokerServer brokerServer;
 
     @GetMapping("/broker/login")
-    public Boolean login(@RequestParam String broker_name, @RequestParam String broker_password){
+    public Integer login(@RequestParam String broker_name, @RequestParam String broker_password){
         return brokerServer.Login(broker_name,broker_password);
     }
 
