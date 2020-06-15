@@ -15,23 +15,11 @@ public class CommissionDAOImpl implements CommissionDAO {
 
     @Override
     public Boolean addOne(Commission input) {
-        input.setCommissionId(0);
-        commissionRepository.save(input);
+        Commission res = commissionRepository.getOne(input.getCommissionId());
+        if(res != null)
+            res.setPercent(input.getPercent());
+        commissionRepository.save(res);
         return true;
-    }
-
-    @Override
-    public Boolean modify( Integer broker_id, Integer product_id, Integer percent) {
-        Commission old = commissionRepository.getOne(broker_id,product_id);
-        old.setPercent(percent);
-        commissionRepository.saveAndFlush(old);
-        System.out.print( "modify succeed \n");
-        return true;
-    }
-
-    @Override
-    public Integer getOne(Integer broker_id,Integer product_id) {
-        return commissionRepository.getOne(broker_id,product_id).getPercent();
     }
 
     @Override

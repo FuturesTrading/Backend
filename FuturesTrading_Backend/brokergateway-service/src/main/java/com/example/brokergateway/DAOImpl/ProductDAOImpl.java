@@ -19,8 +19,8 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getAll() {
-        return productRepository.findAll();
+    public List<Product> getAll(Integer broker_id) {
+        return productRepository.getAll(broker_id);
     }
 
     @Override
