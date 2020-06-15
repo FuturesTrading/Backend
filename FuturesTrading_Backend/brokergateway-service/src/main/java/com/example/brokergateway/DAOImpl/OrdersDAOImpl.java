@@ -54,7 +54,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
         if (p == null) {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 1, product_id, in_or_out);
-            List<Orders> res = getBuy(orders);
+            List<Orders> res = sort(orders);
             redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
@@ -196,7 +196,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p == null) {
             res = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 3, product_id, in_or_out);
-            res = getBuy(res);
+            res = sort(res);
             redisUtil.set("Cease " + mark + product_id + " broker " + broker_id, res);
         } else {
             res = JSONArray.parseArray(p.toString(), Orders.class);
