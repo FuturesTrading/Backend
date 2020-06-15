@@ -17,6 +17,7 @@ public class TradeDAOImpl implements TradeDAO {
     @Override
     public Boolean addOne(Trade input) {
         input.setTradeId(0);
+        System.out.println("trade save=======================================");
         tradeRepository.save(input);
         return true;
     }

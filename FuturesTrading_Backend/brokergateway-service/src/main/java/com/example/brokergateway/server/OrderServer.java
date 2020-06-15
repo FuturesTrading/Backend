@@ -32,8 +32,10 @@ public class OrderServer {
     @Autowired
     public CommissionDAO commissionDAO;
 
-    public Boolean addOne(Orders input) {
-        Boolean state = ordersDAO.addOne(input);
+    public Integer addOne(Orders input) {
+        Boolean state = input.getVariety() == 1;
+
+         Integer id = ordersDAO.addOne(input);
         if(input.getVariety() == 1){
             traderClient.orderBookUpdateNew(input.getBrokerId(), input.getProductId(),input.getQuantity(),input.getPrice(), input.getInOrOut());
         }
@@ -41,7 +43,7 @@ public class OrderServer {
             handleCease(input.getBrokerId(), input.getProductId(), input.getInOrOut());
         }
         webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
-        return true;
+        return id;
     }
 
     public String getInfo(Integer broker_id, Integer product_id) {
@@ -65,7 +67,6 @@ public class OrderServer {
                     price = tmp.getPrice();
                 }
                 loc++;
-//                System.out.println("sell "+"loc: "+loc+"price: "+price+"vol"+vol);
             }
             if (vol != 0) {
                 info = new Info( vol, price);
@@ -90,7 +91,6 @@ public class OrderServer {
                     price = tmp.getPrice();
                 }
                 loc++;
-//                System.out.println("buy "+"loc: "+loc+"level: "+res2.size()+"price: "+price+"vol"+vol);
             }
             if (vol != 0) {
                 info = new Info( vol, price,res2.size()+1);
@@ -124,6 +124,7 @@ public class OrderServer {
     public void handleCease(Integer broker_id, Integer product_id, Boolean in_or_out) {
         List<Orders> market = getByBroker_id(broker_id, false, product_id);
         List<Orders> cease = ordersDAO.getCease(broker_id, product_id, in_or_out);
+        if(market==null || market.size()==0) return;
         float trigger = market.get(0).getPrice();//买方最高价
         for (Orders a : cease) {
             if (a.getPrice() < trigger) {
@@ -178,6 +179,7 @@ public class OrderServer {
         switch (type) {
             case 1://Market Order
                 List<Orders> res = getByBroker_id(input.getBrokerId(), !input.getInOrOut(), input.getProductId());
+                System.out.println(res.toString());
                 Integer remain = input.getRemain();
                 for (Orders a : res) {
                     Integer num = a.getRemain();
@@ -185,7 +187,12 @@ public class OrderServer {
                     if (num > remain) {
                         ordersDAO.setElse(input.getOrderId(), 2);
                         business = remain;
-                    } else {
+                    } else if(num.equals(remain)){
+                        ordersDAO.setElse(a.getOrderId(), 2);
+                        ordersDAO.setElse(input.getOrderId(), 2);
+                        business = num;
+                    }
+                    else{
                         ordersDAO.setElse(a.getOrderId(), 2);
                         business = num;
                     }

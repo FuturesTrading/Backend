@@ -2,11 +2,13 @@ package com.example.brokergateway.entity;
 
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+@Proxy(lazy = false)
 @Data
 @Entity
 @Table(name = "trade", schema = "futures")

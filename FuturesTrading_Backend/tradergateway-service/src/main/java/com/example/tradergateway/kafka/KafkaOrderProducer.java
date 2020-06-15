@@ -1,7 +1,5 @@
 package com.example.tradergateway.kafka;
 
-
-
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.example.tradergateway.dto.OrdersDTO;
 import com.google.gson.Gson;
@@ -21,6 +19,7 @@ public class KafkaOrderProducer {
 
     public Boolean sendKafka(OrdersDTO object) {
         try {
+
             String order = JSON.toJSONString(object, SerializerFeature.WriteMapNullValue);
             System.out.println(order);
             kafkaTemplate.send("orders", order);

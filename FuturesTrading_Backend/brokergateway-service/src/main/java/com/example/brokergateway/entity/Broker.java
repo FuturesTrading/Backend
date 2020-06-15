@@ -2,10 +2,11 @@ package com.example.brokergateway.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+@Proxy(lazy = false)
 @Data
 @Entity
 @Table(name = "broker", schema = "futures")

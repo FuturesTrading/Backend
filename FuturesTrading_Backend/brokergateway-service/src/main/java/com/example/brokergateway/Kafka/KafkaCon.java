@@ -33,7 +33,8 @@ public class KafkaCon {
         Orders orders = JSON.parseObject(record.value(),Orders.class);
         System.out.println(orders.toString());
         Integer type = orders.getVariety();
-        orderService.addOne(orders);
+        Integer id=orderService.addOne(orders);
+        orders.setOrderId(id);
         orderService.handle(orders,type);
     }
 }

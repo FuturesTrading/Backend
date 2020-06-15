@@ -9,6 +9,7 @@ import com.example.brokergateway.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 @Repository
@@ -20,19 +21,15 @@ public class OrdersDAOImpl implements OrdersDAO {
     RedisUtil redisUtil;
 
     @Override
-    public Boolean addOne(Orders input) {
+    public Integer addOne(Orders input) {
         input.setOrderId(0);
         input.setState(1);
         input.setRemain(input.getQuantity());
-        ordersRepository.save(input);
+        Orders orders=ordersRepository.save(input);
         if (input.getVariety() == 3) {
             addCease(input);
         }
-        if (input.getVariety() == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return orders.getOrderId();
     }
 
     @Override
@@ -51,23 +48,10 @@ public class OrdersDAOImpl implements OrdersDAO {
     public List<Orders> getByBroker(Integer broker_id, Boolean in_or_out, Integer product_id) {
         List<Orders> orders;
         String mark = in_or_out ? "sell " : "buy ";
-//        Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
-//        if (p == null || p.toString().equals("[]")) {
         orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 2, product_id, in_or_out);
-        System.out.println(broker_id);
-        System.out.println(product_id);
-        System.out.println(in_or_out);
-//            orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(1, 1, 2, 1, in_or_out);
-
-        System.out.println(orders.toString());
         List<Orders> res = sort(orders);
         redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
         return res;
-
-//        } else {
-//            orders = JSONArray.parseArray(p.toString(), Orders.class);
-//            return orders;
-//        }
     }
 
     @Override
@@ -107,8 +91,12 @@ public class OrdersDAOImpl implements OrdersDAO {
                     return -1;
                 else if (dif < 0)
                     return 1;
-                else
+                else {
+                    long timedif=o1.getReleaseTime().getTime()-o2.getReleaseTime().getTime();
+                    if(timedif>0) return 1;
+                    if(timedif<0) return -1;
                     return 0;
+                }
             }
         });
         return orders;
@@ -141,7 +129,7 @@ public class OrdersDAOImpl implements OrdersDAO {
             String mark = in_or_out ? "sell " : "buy ";
             Integer product_id = input.getProductId();
             Object p = redisUtil.get("Orders " + mark + product_id + " broker " + broker_id);
-            if (p != null) {
+            if (p != null || !p.toString().equals("[]")) {
                 List<Orders> orders = ordersRepository.findAllByBroker_id(broker_id);
                 orders.remove(input);
                 redisUtil.set("Orders" +mark+ product_id + " broker " + broker_id, JSONArray.toJSONString(orders));

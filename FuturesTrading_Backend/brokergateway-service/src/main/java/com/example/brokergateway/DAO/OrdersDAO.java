@@ -5,7 +5,7 @@ import com.example.brokergateway.entity.Orders;
 import java.util.List;
 
 public interface OrdersDAO {
-    Boolean addOne(Orders input);
+    Integer addOne(Orders input);
     Orders getOne(Integer input);
     List<Orders> getByBroker(Integer input,Boolean in_or_out, Integer product_id);
     List<Orders> getByBroker_handled(Integer input,Boolean in_or_out, Integer product_id);
