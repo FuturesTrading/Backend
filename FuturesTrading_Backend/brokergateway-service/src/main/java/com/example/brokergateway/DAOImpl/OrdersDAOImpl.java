@@ -9,7 +9,6 @@ import com.example.brokergateway.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 @Repository
@@ -86,7 +85,9 @@ public class OrdersDAOImpl implements OrdersDAO {
         Collections.sort(orders, new Comparator<Orders>() {
             @Override
             public int compare(Orders o1, Orders o2) {
-                float dif = o1.getPrice() - o2.getPrice();
+                float dif = 0;
+                if(o1.getPrice()!=null && o2.getPrice()!=null)
+                    dif=o1.getPrice() - o2.getPrice();
                 if (dif > 0)
                     return -1;
                 else if (dif < 0)

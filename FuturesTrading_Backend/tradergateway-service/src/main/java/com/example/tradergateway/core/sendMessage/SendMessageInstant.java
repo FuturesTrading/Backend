@@ -6,6 +6,8 @@ import com.example.tradergateway.kafka.KafkaOrderProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 @Component
@@ -13,7 +15,10 @@ public class SendMessageInstant {
     @Autowired
     KafkaOrderProducer kafkaOrderProducer;
     public void productionInstantMessage(List<OrdersDTO> orders){
-        for(OrdersDTO order:orders)
-        kafkaOrderProducer.sendKafka(order);
+        System.out.println(orders.size());
+        for(OrdersDTO order:orders){
+            order.setReleaseTime(new Timestamp(Calendar.getInstance().getTimeInMillis()));
+            kafkaOrderProducer.sendKafka(order);
+        }
     }
 }
