@@ -6,6 +6,8 @@ import com.example.brokergateway.repository.CommissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class CommissionDAOImpl implements CommissionDAO {
     @Autowired
@@ -19,8 +21,8 @@ public class CommissionDAOImpl implements CommissionDAO {
     }
 
     @Override
-    public Boolean modify( Integer commission_id, Integer percent) {
-        Commission old = getOne(commission_id);
+    public Boolean modify( Integer broker_id, Integer product_id, Integer percent) {
+        Commission old = commissionRepository.getOne(broker_id,product_id);
         old.setPercent(percent);
         commissionRepository.saveAndFlush(old);
         System.out.print( "modify succeed \n");
@@ -28,7 +30,12 @@ public class CommissionDAOImpl implements CommissionDAO {
     }
 
     @Override
-    public Commission getOne(Integer commission_id) {
-        return commissionRepository.getOne(commission_id);
+    public Integer getOne(Integer broker_id,Integer product_id) {
+        return commissionRepository.getOne(broker_id,product_id).getPercent();
+    }
+
+    @Override
+    public List<Commission> getAll(Integer broker_id) {
+        return commissionRepository.getAll(broker_id);
     }
 }

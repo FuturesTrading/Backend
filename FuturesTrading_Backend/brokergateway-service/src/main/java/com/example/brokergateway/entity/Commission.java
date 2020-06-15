@@ -15,16 +15,12 @@ public class Commission implements Serializable {
     private Integer commissionId;
 
     @Basic
-    @Column(name = "trader_id")
-    private Integer traderId;
+    @Column(name = "product_id")
+    private Integer productId;
 
     @Basic
     @Column(name = "broker_id")
     private Integer brokerId;
-
-    @Basic
-    @Column(name = "order_id")
-    private Integer orderId;
 
     @Basic
     @Column(name = "percent")

@@ -2,6 +2,7 @@ package com.example.brokergateway.server;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.example.brokergateway.DAO.CommissionDAO;
 import com.example.brokergateway.DAO.OrdersDAO;
 import com.example.brokergateway.DAO.TradeDAO;
 import com.example.brokergateway.entity.Info;
@@ -27,6 +28,9 @@ public class OrderServer {
 
     @Autowired
     public TraderClient traderClient;
+
+    @Autowired
+    public CommissionDAO commissionDAO;
 
     public Boolean addOne(Orders input) {
         Boolean state = ordersDAO.addOne(input);
@@ -151,12 +155,15 @@ public class OrderServer {
                 seller_id = input.getTraderId();
                 buyer_id = a.getTraderId();
             }
-            Trade trade = new Trade(input.getBrokerId(),
+            Trade trade = new Trade(
+                    input.getBrokerId(),
                     buyer_id,
                     seller_id,
                     input.getProductId(),
                     business,
-                    input.getInOrOut());
+                    input.getInOrOut(),
+                    commissionDAO.getOne(input.getBrokerId(),input.getProductId()),
+                    a.getPrice());
             tradeDAO.addOne(trade);
             traderClient.addTrade(trade);
             if (business == remain)
