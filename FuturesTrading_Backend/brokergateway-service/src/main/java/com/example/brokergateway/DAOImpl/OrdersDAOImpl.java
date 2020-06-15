@@ -55,7 +55,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p == null) {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 1, product_id, in_or_out);
             List<Orders> res = getBuy(orders);
-            redisUtil.set("Orders buy " + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
+            redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
         } else {
@@ -73,7 +73,7 @@ public class OrdersDAOImpl implements OrdersDAO {
             orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN
                     (broker_id, 1, 1, product_id, in_or_out);
             List<Orders> res = getBuy(orders);
-            redisUtil.set("Orders buy " + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
+            redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
             return res;
 
         } else {
@@ -124,7 +124,7 @@ public class OrdersDAOImpl implements OrdersDAO {
         if (p != null) {
             List<Orders> orders = ordersRepository.findAllByBroker_id(broker_id);
             orders.remove(input);
-            redisUtil.set("Cease" + product_id + " broker " + broker_id, JSONArray.toJSONString(orders));
+            redisUtil.set("Cease"+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(orders));
         }
         input.setState(state);
         ordersRepository.saveAndFlush(input);
@@ -143,7 +143,7 @@ public class OrdersDAOImpl implements OrdersDAO {
             if (p != null) {
                 List<Orders> orders = ordersRepository.findAllByBroker_id(broker_id);
                 orders.remove(input);
-                redisUtil.set("Orders" + product_id + " broker " + broker_id, JSONArray.toJSONString(orders));
+                redisUtil.set("Orders" +mark+ product_id + " broker " + broker_id, JSONArray.toJSONString(orders));
             }
         }
 
