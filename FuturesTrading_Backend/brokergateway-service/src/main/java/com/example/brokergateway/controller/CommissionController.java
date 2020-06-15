@@ -7,10 +7,7 @@ import com.example.brokergateway.server.CommissionServer;
 import com.example.brokergateway.server.ProductServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +22,12 @@ public class CommissionController {
     public ProductServer productServer;
 
     @PostMapping("/commission/add")
-    public Boolean addCommission(@RequestParam Commission commission){
+    public Boolean addCommission(@RequestBody Commission commission){
         productServer.addOne(commission.getProductId());
         return commissionServer.addOne(commission);
     }
 
-    @PostMapping("/commission/getAll")
+    @GetMapping("/commission/getAll")
     public List<Product> get(@RequestParam Integer brokerId){
         List<Commission> tmp = commissionServer.getAll(brokerId);
         List<Product> res = new ArrayList<>();
