@@ -21,11 +21,13 @@ public class OrderBookController {
     @Autowired
     private WebSocketServer webSocketServer;
 
+    //1111
     @GetMapping(value="/orderBook/buyer")
     public Result<List<InfoDTO>> getBuyOrderBook(@RequestParam Integer brokerId, @RequestParam Integer productId){
         return ResultUtil.success(orderBookService.getBuyOrderBook(productId,brokerId));
     }
 
+    //111
     @GetMapping(value="/orderBook/seller")
     public Result<List<InfoDTO>> getSellOrderBook(@RequestParam  Integer brokerId, @RequestParam  Integer productId){
         return ResultUtil.success(orderBookService.getSellOrderBook(productId,brokerId));
@@ -36,6 +38,7 @@ public class OrderBookController {
         return ResultUtil.success(orderBookService.getOrderBook(productId,brokerId));
     }
 
+    //broker调用
     @GetMapping(value = "/orderBook/new")
     public Result orderBookUpdateNew(@RequestParam  Integer brokerId, @RequestParam Integer productId,Integer count,Float price,Boolean in_or_out){
         orderBookService.addOrderBook(productId,brokerId,count,price,in_or_out);

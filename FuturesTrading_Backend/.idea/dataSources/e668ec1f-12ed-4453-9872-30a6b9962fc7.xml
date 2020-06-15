@@ -1551,7 +1551,7 @@
       <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="291" name="commission_count">
+    <column id="374" parent="291" name="price">
       <Position>10</Position>
       <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>

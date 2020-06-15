@@ -16,8 +16,8 @@ public class BrokerController {
     public BrokerServer brokerServer;
 
     @GetMapping("/broker/login")
-    public Integer login(@RequestParam String broker_name, @RequestParam String broker_password){
-        return brokerServer.Login(broker_name,broker_password);
+    public Integer login(@RequestParam String brokerName, @RequestParam String brokerPassword){
+        return brokerServer.Login(brokerName,brokerPassword);
     }
 
     @GetMapping("/broker/getAll")
@@ -26,7 +26,7 @@ public class BrokerController {
     }
 
     @GetMapping("/broker/brokerId")
-    public Broker getBrokerByBrokerId(@RequestParam Integer broker_id){
-        return brokerServer.getByBrokerId(broker_id);
+    public Broker getBrokerByBrokerId(@RequestParam Integer brokerId){
+        return brokerServer.getByBrokerId(brokerId);
     }
 }

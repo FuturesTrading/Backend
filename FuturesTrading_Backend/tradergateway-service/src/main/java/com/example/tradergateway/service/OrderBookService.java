@@ -94,8 +94,10 @@ public class OrderBookService {
 
     public List<InfoDTO> getOrderBook(Integer productId, Integer brokerId) {
         List<InfoDTO> infos=new ArrayList<>();
-        infos.addAll(getSellOrderBook(productId,brokerId));
-        infos.addAll(getSellOrderBook(productId,brokerId));
+        List<InfoDTO> b=getSellOrderBook(productId, brokerId);
+        if(b!=null) infos.addAll(b);
+        List<InfoDTO> s=getSellOrderBook(productId, brokerId);
+        if(s!=null) infos.addAll(s);
         return infos;
     }
 

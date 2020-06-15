@@ -21,6 +21,7 @@ public class OrderBlotterController {
         return ResultUtil.success(orderBlotterService.getTradeByTraderId(traderId));
     }
 
+    //broker调用
     @PostMapping(value = "/trade")
     public Result addTrade(@RequestBody TradeDTO tradeDTO) throws JSONException {
         orderBlotterService.updateOrderBlotter(tradeDTO);

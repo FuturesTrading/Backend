@@ -27,6 +27,6 @@ public interface BrokerClient {
     @GetMapping(value = "/orderBook/broker/product")
     List<InfoDTO> getOrderBookByBrokerIdAndProductId(@RequestParam Integer brokerId, @RequestParam Integer productId);
 
-    @GetMapping(value = "/trade")
+    @GetMapping(value = "/trade/getByTrader")
     List<TradeDTO> getTradeByTraderId(@RequestParam Integer traderId);
 }

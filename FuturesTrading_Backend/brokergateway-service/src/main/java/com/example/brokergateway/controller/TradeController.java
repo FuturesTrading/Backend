@@ -17,12 +17,12 @@ public class TradeController {
     public TradeServer tradeServer;
 
     @GetMapping("/trade/getByTrader")
-    public List<Trade> getByTrader(@RequestParam Integer trader_id){
-        return tradeServer.getByTrader(trader_id);
+    public List<Trade> getByTrader(@RequestParam Integer traderId){
+        return tradeServer.getByTrader(traderId);
     }
 
     @GetMapping("/trade/getByBroker")
-    public List<Trade> getByBroker(@RequestParam Integer trader_id){
-        return tradeServer.getByBroker(trader_id);
+    public List<Trade> getByBroker(@RequestParam Integer brokerId){
+        return tradeServer.getByBroker(brokerId);
     }
 }

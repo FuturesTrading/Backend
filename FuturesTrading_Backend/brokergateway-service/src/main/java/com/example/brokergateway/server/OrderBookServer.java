@@ -23,9 +23,10 @@ public class OrderBookServer {
         List<Info> res1 = new ArrayList<>();
         Integer size = sell.size();
         Info info;
-        float price = sell.get(0).getPrice();
+        float price = 0;
         Integer vol = 0, loc = 0;
         while(loc < size){
+            price=sell.get(0).getPrice();
             Orders tmp = sell.get(loc);
             if(tmp.getPrice() == price){
                 vol += tmp.getQuantity();
