@@ -55,7 +55,7 @@ public class DateUtil {
 
     public static final Calendar getTomorrowCloseTime(){
         Calendar tm = getTomorrow();
-        tm.set(Calendar.HOUR_OF_DAY, 3);
+        tm.set(Calendar.HOUR_OF_DAY, 16);
         return tm;
     }
 

@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/brokergateway_Web_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/websocket/WebSocketConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/configuration/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/OrderBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/TraderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/controller/TraderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/dao/ProductDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/BrokerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrdersDTOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/OrdersDTOService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/TraderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/java/com/example/tradergateway/service/TraderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradergateway-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tradergateway-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAO/TradeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAO/TradeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/OrdersDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/OrdersDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/demo/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/demo/util/DateUtil.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,22 +107,9 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAOImpl" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAO" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\server" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.tradergateway" />
       <recent name="com.example.zuul" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.zuul" />
-      <recent name="com.example.brokergateway.configuration" />
-      <recent name="com.example.register" />
-      <recent name="com.example.brokergateway.server" />
-      <recent name="com.example.tradergateway.configuration" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\controller" />
@@ -139,6 +117,19 @@
       <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\register-server\src\main\java\com\example\register" />
       <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\traderGateway\src\main\java\com\example\tradergateway" />
       <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\common\src\main\java\com\example\common" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.brokergateway.websocket" />
+      <recent name="com.example.zuul" />
+      <recent name="com.example.brokergateway.configuration" />
+      <recent name="com.example.register" />
+      <recent name="com.example.brokergateway.server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAOImpl" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAO" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\server" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -250,7 +241,7 @@
       <workItem from="1592103039647" duration="34243000" />
       <workItem from="1592178990364" duration="25337000" />
       <workItem from="1592178990364" duration="18642000" />
-      <workItem from="1592238405183" duration="6888000" />
+      <workItem from="1592238405183" duration="15042000" />
     </task>
     <servers />
   </component>

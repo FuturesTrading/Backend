@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -179,6 +180,7 @@ public class OrderServer {
         switch (type) {
             case 1://Market Order
                 List<Orders> res = getByBroker_id(input.getBrokerId(), !input.getInOrOut(), input.getProductId());
+                if(!input.getInOrOut()) Collections.reverse(res);
                 System.out.println(res.toString());
                 Integer remain = input.getRemain();
                 for (Orders a : res) {

@@ -48,7 +48,11 @@ public class OrdersDAOImpl implements OrdersDAO {
         List<Orders> orders;
         String mark = in_or_out ? "sell " : "buy ";
         orders = ordersRepository.findByBroker_idAndStateAndVarietyAndProduct_idAndIN(broker_id, 1, 2, product_id, in_or_out);
-        List<Orders> res = sort(orders);
+        List<Orders> res=null;
+        if(in_or_out) res=sortSell(orders);
+        else{
+            res=sortBuy(orders);
+        }
         redisUtil.set("Orders "+mark + product_id + " broker " + broker_id, JSONArray.toJSONString(res));
         return res;
     }
@@ -96,6 +100,48 @@ public class OrdersDAOImpl implements OrdersDAO {
                     long timedif=o1.getReleaseTime().getTime()-o2.getReleaseTime().getTime();
                     if(timedif>0) return 1;
                     if(timedif<0) return -1;
+                    return 0;
+                }
+            }
+        });
+        return orders;
+    }
+    private List<Orders> sortBuy(List<Orders> orders) {
+        Collections.sort(orders, new Comparator<Orders>() {
+            @Override
+            public int compare(Orders o1, Orders o2) {
+                float dif = 0;
+                if(o1.getPrice()!=null && o2.getPrice()!=null)
+                    dif=o1.getPrice() - o2.getPrice();
+                if (dif > 0)
+                    return -1;
+                else if (dif < 0)
+                    return 1;
+                else {
+                    long timedif=o1.getReleaseTime().getTime()-o2.getReleaseTime().getTime();
+                    if(timedif>0) return 1;
+                    if(timedif<0) return -1;
+                    return 0;
+                }
+            }
+        });
+        return orders;
+    }
+    private List<Orders> sortSell(List<Orders> orders) {
+        Collections.sort(orders, new Comparator<Orders>() {
+            @Override
+            public int compare(Orders o1, Orders o2) {
+                float dif = 0;
+                if(o1.getPrice()!=null && o2.getPrice()!=null)
+                    dif=o1.getPrice() - o2.getPrice();
+                if (dif > 0)
+                    return -1;
+                else if (dif < 0)
+                    return 1;
+                else {
+                    long timedif=o1.getReleaseTime().getTime()-o2.getReleaseTime().getTime();
+                    if(timedif>0) return -1;
+                    if(timedif<0) return 1;
                     return 0;
                 }
             }

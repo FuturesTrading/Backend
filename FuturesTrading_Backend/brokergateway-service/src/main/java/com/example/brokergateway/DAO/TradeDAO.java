@@ -9,5 +9,4 @@ public interface TradeDAO {
     Trade getOne(Integer trade_id);
     List<Trade> getByBroker_id(Integer broker_id);
     List<Trade> getByTrader_id(Integer trader_id);
-
 }
