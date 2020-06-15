@@ -32,9 +32,10 @@ public class OrdersDTOService {
     private ProductService productService;
 
     public Boolean createOrderWithStrategy(OrdersDTO order, ProcessorFactory.Parameter pp, String startTime, String endTime,Integer intervalMinute) throws ParseException {
+        order.setState(0);
         Processor processor = processorFactory.create(pp);
         List<OrdersDTO> orders = processor.process(order);
-        System.out.println(orders.toString());
+//        System.out.println(orders.toString());
         if(pp.getStrategy().equals(TWAP))
         sendMessage.productionDelayMessage(orders,startTime,intervalMinute);
         else{

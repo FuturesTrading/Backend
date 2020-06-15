@@ -92,11 +92,7 @@ public class ProcessorFactory {
                 p = tp;
                 break;
             case NONE:
-                TwapProcessor tp1 = new TwapProcessor();
-                tp1.setStartTime(parameter.getStartTime());
-                tp1.setEndTime(parameter.getEndTime());
-                tp1.setInterval(parameter.getIntervalMinute());
-                p = tp1;
+                p = new NoneProcessor();
                 break;
             default:
                 throw new InvalidParameterException("Unknown Processor Strategy: " + parameter.getStrategy());

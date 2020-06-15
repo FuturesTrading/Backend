@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoneProcessor implements Processor {
-
     public List<OrdersDTO> process(OrdersDTO order) {
         List<OrdersDTO> orders = new ArrayList<>();
         orders.add(order);
