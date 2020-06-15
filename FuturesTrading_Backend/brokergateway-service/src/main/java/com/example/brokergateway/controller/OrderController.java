@@ -14,13 +14,6 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private OrderServer orderServer;
-
-    @PostMapping("/orders/newOrder")
-    public void addOrder(@RequestBody Orders orders){
-        Integer type = orders.getVariety();
-        orderServer.addOne(orders);
-        orderServer.handle(orders,type);
-    }
     
     @GetMapping("/getOrders_handling")
     public List<Orders> getAll(@RequestParam Integer broker_id){
