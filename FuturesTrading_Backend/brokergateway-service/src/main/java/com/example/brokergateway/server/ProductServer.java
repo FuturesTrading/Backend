@@ -20,6 +20,7 @@ public class ProductServer {
     public void addOne(Integer product_id){
         Product product = productDAO.getOne(product_id);
         if(product == null){
+            product = new Product();
             product.setPeriod(String.valueOf(product_id/10));
             String name = "";
             switch (product_id%10){
