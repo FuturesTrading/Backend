@@ -26,31 +26,6 @@ public class KafkaCon {
     @Autowired
     private OrderServer orderService;
 
-//    public static void main(String[] args) throws Exception {
-//        System.out.println("Consumer");
-//        Properties props = new Properties();
-//        props.setProperty("bootstrap.servers", "localhost:9092");
-//        props.setProperty("group.id", "orders");
-//        props.setProperty("enable.auto.commit", "true");
-//        props.setProperty("auto.commit.interval.ms", "1000");
-//        props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-//        props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-//
-//        KafkaConsumer<String, String> consumer = new KafkaConsumer<String,String>(props);
-//        consumer.subscribe(Arrays.asList("orders"));
-//
-//        while (true) {
-//            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
-//            for (ConsumerRecord<String, String> record : records){
-//                System.out.println(record.value());
-//                Orders orders = JSON.parseObject(record.value(),Orders.class);
-//                System.out.println(orders.toString());
-//                orderService.addOne(orders);
-//            }
-//        }
-//    }
-
-
     @KafkaListener(topics = {"orders"})
     public void listen(ConsumerRecord<String, String> record) {
         logger.info("receive message");

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="10f9aff1-3dcd-46bc-a82c-7f1ef63e276a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +34,13 @@
         <item name="futures@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="futures: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="futures@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="futures: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="trade: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -82,15 +86,16 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAOImpl" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAO" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\server" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.tradergateway" />
       <recent name="com.example.zuul" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\controller" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\zuul\src\main\java\com\example\zuul" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\register-server\src\main\java\com\example\register" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\traderGateway\src\main\java\com\example\tradergateway" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\common\src\main\java\com\example\common" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.zuul" />
@@ -99,12 +104,11 @@
       <recent name="com.example.brokergateway.server" />
       <recent name="com.example.tradergateway.configuration" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\controller" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\zuul\src\main\java\com\example\zuul" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\register-server\src\main\java\com\example\register" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\traderGateway\src\main\java\com\example\tradergateway" />
-      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\common\src\main\java\com\example\common" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAOImpl" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\DAO" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\git\Backend\FuturesTrading_Backend\brokergateway-service\src\main\java\com\example\brokergateway\server" />
+      <recent name="D:\goodgoodstudy\3-2\企业级信息\hw4\FuturesTrading_Backend\register-server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -190,27 +194,7 @@
       <serviceView>
         <option name="contentProportion" value="0.3463687" />
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f1a543bd" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f1a543bd" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7366133b" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f1a543bd" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@681f6e0c" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f1a543bd" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@678cd096" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -233,7 +217,8 @@
       <workItem from="1592032255910" duration="28890000" />
       <workItem from="1592097640911" duration="1255000" />
       <workItem from="1592099314852" duration="965000" />
-      <workItem from="1592103039647" duration="32769000" />
+      <workItem from="1592103039647" duration="34243000" />
+      <workItem from="1592178990364" duration="4218000" />
     </task>
     <servers />
   </component>

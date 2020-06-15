@@ -20,7 +20,7 @@ public class BrokerServer{
         }else{
             String answer = broker.getBrokerPassword();
             if(answer.equals(password)){
-                return broker.getBrokerID();//成功
+                return broker.getBrokerId();//成功
             }else {
                 return null;//密码错误
             }
