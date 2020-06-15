@@ -62,14 +62,6 @@ public class Orders implements Serializable {
     @Column(name = "cancel_id")
     private Integer cancelId;
 
-    @Basic
-    @Column(name = "period")
-    private String  period;
-
-    @Basic
-    @Column(name = "product_name")
-    private String  productName;
-
     public Orders() {
 
     }
@@ -86,8 +78,6 @@ public class Orders implements Serializable {
         remain=o.getRemain();
         price=o.getPrice();
         cancelId=o.getCancelId();
-        productName=o.getProductName();
-        period=o.getPeriod();
     }
 
 }
