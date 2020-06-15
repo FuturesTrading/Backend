@@ -43,6 +43,7 @@ public class OrdersDTOService {
 //        order.setProductId(id);
         Processor processor = processorFactory.create(pp);
         List<OrdersDTO> orders = processor.process(order);
+        System.out.println(orders.toString());
         if(pp.getStrategy().equals(TWAP))
         sendMessage.productionDelayMessage(orders,startTime,intervalMinute);
         else{
