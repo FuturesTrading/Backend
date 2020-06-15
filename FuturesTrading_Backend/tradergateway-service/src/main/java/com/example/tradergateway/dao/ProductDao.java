@@ -1,7 +1,5 @@
 package com.example.tradergateway.dao;
 
-import com.example.tradergateway.entity.OrderToSend;
-import com.example.tradergateway.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
