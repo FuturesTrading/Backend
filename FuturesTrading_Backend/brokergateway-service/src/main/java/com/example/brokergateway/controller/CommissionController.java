@@ -36,5 +36,6 @@ public class CommissionController {
         for(Commission a:tmp){
             res.add(productServer.getOne(a.getProductId()));
         }
+        return res;
     }
 }
