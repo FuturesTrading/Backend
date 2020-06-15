@@ -26,4 +26,6 @@ public class CommissionDAOImpl implements CommissionDAO {
     public List<Commission> getAll(Integer broker_id) {
         return commissionRepository.getAll(broker_id);
     }
+
+
 }

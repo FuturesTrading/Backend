@@ -16,55 +16,6 @@ public class OrderBookService {
 
     private Market market=Market.getInstance();
 
-//    public List<InfoDTO> getBuyOrderBook(Integer productId, Integer brokerId){
-//        Map<String,OrderBook> marketMap=market.getMarketMap();
-//        String key="product "+productId.toString()+"broker "+brokerId.toString();
-//        OrderBook orderBook=updateOrderBook(productId,brokerId);
-//        if(orderBook==null) return null;
-//        List<InfoDTO> infos=new ArrayList<>();
-//        Map<Float,Integer> orderBookMap=orderBook.getBuyMap();
-//        List<Map.Entry<Float, Integer>> list = new ArrayList<Map.Entry<Float, Integer>>(orderBookMap.entrySet());
-//        Collections.sort(list, new Comparator<Map.Entry<Float, Integer>>() {
-//            @Override
-//            public int compare(Map.Entry<Float, Integer> o1, Map.Entry<Float, Integer> o2) {
-//                return o2.getKey().compareTo(o1.getKey());
-//            }
-//        });
-//        int level=1;
-//        for(Map.Entry<Float, Integer> entry:list){
-//            InfoDTO infoDTO=new InfoDTO(entry.getValue(),entry.getKey());
-//            infoDTO.setBuy_level(Integer.toString(level));
-//            infos.add(infoDTO);
-//            level++;
-//        }
-//        marketMap.put(key,orderBook);
-//        return infos;
-//    }
-//
-//    public List<InfoDTO> getSellOrderBook(Integer productId, Integer brokerId){
-//        Map<String,OrderBook> marketMap=market.getMarketMap();
-//        String key="product "+productId.toString()+"broker "+brokerId.toString();
-//        OrderBook orderBook=orderBook=updateOrderBook(productId,brokerId);
-//        if(orderBook==null) return null;
-//        List<InfoDTO> infos=new ArrayList<>();
-//        Map<Float,Integer> orderBookMap=orderBook.getSellMap();
-//        List<Map.Entry<Float, Integer>> list = new ArrayList<Map.Entry<Float, Integer>>(orderBookMap.entrySet());
-//        Collections.sort(list, new Comparator<Map.Entry<Float, Integer>>() {
-//            @Override
-//            public int compare(Map.Entry<Float, Integer> o1, Map.Entry<Float, Integer> o2) {
-//                return o2.getKey().compareTo(o1.getKey());
-//            }
-//        });
-//        int level=list.size();
-//        for(Map.Entry<Float, Integer> entry:list){
-//            InfoDTO infoDTO=new InfoDTO(entry.getValue(),entry.getKey());
-//            infoDTO.setSell_level(Integer.toString(level));
-//            infos.add(infoDTO);
-//            level--;
-//        }
-//        return infos;
-//    }
-
     public List<InfoDTO> getOrderBook(Integer productId, Integer brokerId) {
         List<InfoDTO> infos=brokerClient.getOrderBookByBrokerIdAndProductId(brokerId,productId);
         if(infos==null) return null;
