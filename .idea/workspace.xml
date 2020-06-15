@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf879c43-8e4f-4877-bc54-1565a73a51aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/controller/CommissionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/DAO/CommissionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/DAO/CommissionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/CommissionDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/CommissionDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/DAOImpl/ProductDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/controller/BrokerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/controller/BrokerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/entity/Commission.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/entity/Commission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/entity/Trade.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/entity/Trade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/repository/CommissionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/repository/CommissionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/server/CommissionServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/server/CommissionServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service/src/main/java/com/example/brokergateway/server/OrderServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +33,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/FuturesTrading_Backend/brokergateway-service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,6 +56,7 @@
       <workItem from="1592063027182" duration="616000" />
       <workItem from="1592127538861" duration="3119000" />
       <workItem from="1592148162834" duration="15000" />
+      <workItem from="1592160777719" duration="1642000" />
     </task>
     <servers />
   </component>
