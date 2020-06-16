@@ -19,14 +19,13 @@ public class KafkaOrderProducer {
 
     public Boolean sendKafka(OrdersDTO object) {
         try {
-
             String order = JSON.toJSONString(object, SerializerFeature.WriteMapNullValue);
             System.out.println(order);
             kafkaTemplate.send("orders", order);
-            System.out.print("send success");
+            System.out.println("=======================send success=======================");
             return true;
         } catch (Exception e) {
-            System.out.print("send false");
+            System.out.println("=======================send false======================");
             return false;
         }
     }

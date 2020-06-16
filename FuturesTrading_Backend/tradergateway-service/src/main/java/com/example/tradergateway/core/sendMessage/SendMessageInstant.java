@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 @Component
 public class SendMessageInstant {
@@ -17,7 +18,7 @@ public class SendMessageInstant {
     public void productionInstantMessage(List<OrdersDTO> orders){
         System.out.println(orders.size());
         for(OrdersDTO order:orders){
-            order.setReleaseTime(new Timestamp(Calendar.getInstance().getTimeInMillis()));
+            order.setReleaseTime(new Timestamp(Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00")).getTimeInMillis()));
             kafkaOrderProducer.sendKafka(order);
         }
     }

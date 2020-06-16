@@ -12,6 +12,7 @@ import com.example.brokergateway.websocket.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,7 +36,6 @@ public class OrderServer {
 
     public Integer addOne(Orders input) {
         Boolean state = input.getVariety() == 1;
-
          Integer id = ordersDAO.addOne(input);
         if(input.getVariety() == 1){
             traderClient.orderBookUpdateNew(input.getBrokerId(), input.getProductId(),input.getQuantity(),input.getPrice(), input.getInOrOut());
@@ -60,11 +60,11 @@ public class OrderServer {
             while (loc < size) {
                 Orders tmp = sell.get(loc);
                 if (tmp.getPrice() == price) {
-                    vol += tmp.getQuantity();
+                    vol += tmp.getRemain();
                 } else {
                     info = new Info( vol, price);
                     res1.add(info);
-                    vol = tmp.getQuantity();
+                    vol = tmp.getRemain();
                     price = tmp.getPrice();
                 }
                 loc++;
@@ -84,11 +84,11 @@ public class OrderServer {
             while (loc < size) {
                 Orders tmp = buy.get(loc);
                 if (tmp.getPrice() == price) {
-                    vol += tmp.getQuantity();
+                    vol += tmp.getRemain();
                 } else {
                     info = new Info( vol, price, res2.size() + 1);
                     res2.add(info);
-                    vol = tmp.getQuantity();
+                    vol = tmp.getRemain();
                     price = tmp.getPrice();
                 }
                 loc++;
@@ -100,6 +100,8 @@ public class OrderServer {
             }
         }
         res1.addAll(res2);
+        System.out.println(res2);
+        System.out.println(res1);
         return String.valueOf(JSONArray.parseArray(JSON.toJSONString(res1)));
     }
 
@@ -183,24 +185,30 @@ public class OrderServer {
     }
 
     public void handle(Orders input, Integer type) {
+        System.out.println("=====handle============================================");
+        System.out.println(input.toString());
         switch (type) {
             case 1://Market Order
                 List<Orders> res = getByBroker_id(input.getBrokerId(), !input.getInOrOut(), input.getProductId());
                 if(!input.getInOrOut()) Collections.reverse(res);
+                System.out.println("========================res======================");
                 System.out.println(res.toString());
                 Integer remain = input.getRemain();
                 for (Orders a : res) {
                     Integer num = a.getRemain();
                     Integer business;
                     if (num > remain) {
+                        System.out.println(">>>>>");
                         ordersDAO.setElse(input.getOrderId(), 2);
                         business = remain;
                     } else if(num.equals(remain)){
+                        System.out.println("=====");
                         ordersDAO.setElse(a.getOrderId(), 2);
                         ordersDAO.setElse(input.getOrderId(), 2);
                         business = num;
                     }
                     else{
+                        System.out.println("<<<<<");
                         ordersDAO.setElse(a.getOrderId(), 2);
                         business = num;
                     }
@@ -223,15 +231,15 @@ public class OrderServer {
                             commissionDAO.getOne(input.getBrokerId(),input.getProductId()),
                             a.getPrice());
                     tradeDAO.addOne(trade);
-                    if (business == remain){
-
+                    if (business.equals(remain)){
+                        System.out.println("========================处理结束=============");
                         webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
-
                         break;
+                }
+                    else{
+                        remain=remain-business;
                     }
                 }
-
-                webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
 
                 break;
             case 3://stop Order\Cease Order
@@ -243,6 +251,7 @@ public class OrderServer {
             default://limit Order\Astrict Order 不用处理啊
                 break;
         }
+        webSocketServer.sendMessage(input.getBrokerId() + "_" + input.getProductId(), getInfo(input.getBrokerId(), input.getProductId()));
     }
 
 

@@ -36,9 +36,12 @@ public class OrdersDTOService {
         Processor processor = processorFactory.create(pp);
         List<OrdersDTO> orders = processor.process(order);
 //        System.out.println(orders.toString());
-        if(pp.getStrategy().equals(TWAP))
-        sendMessage.productionDelayMessage(orders,startTime,intervalMinute);
+        if(pp.getStrategy().equals(TWAP)){
+            System.out.println("Delay=========================");
+            sendMessage.productionDelayMessage(orders,startTime,intervalMinute);
+        }
         else{
+            System.out.println("Instant=========================");
             sendMessageInstant.productionInstantMessage(orders);
         }
         return true;

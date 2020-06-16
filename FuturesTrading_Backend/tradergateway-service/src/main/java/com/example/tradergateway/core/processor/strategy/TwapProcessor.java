@@ -44,21 +44,17 @@ public class TwapProcessor implements Processor {
         int slice = DateUtil.getMinuteInterval(startTime, endTime) / interval;
         int mean = total / slice;
         logger.info("[TwapProcessor.process] Slice: " + slice + " Mean: " + mean);
-
         List<OrdersDTO> orders = new ArrayList<>();
-
         int gap = total - mean * slice;
-
         for (int i = 0; i < slice; i++){
             OrdersDTO o = new OrdersDTO(order);
-            o.setQuantity(mean);
+            o.setQuantity(mean/2);
             orders.add(o);
         }
         OrdersDTO temp = orders.get(0);
-        temp.setQuantity(temp.getQuantity() + gap);
+        temp.setQuantity((temp.getQuantity() + gap)/2);
         return orders;
     }
-
 
     public Calendar getStartTime() {
         return startTime;

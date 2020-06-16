@@ -19,7 +19,7 @@ import java.util.List;
 
 @Component
 public class SendMessage {
-    private final static Logger logger = LoggerFactory.getLogger("TwapProcessor");
+    private final static Logger logger = LoggerFactory.getLogger("SendMessage");
 
     @Autowired
     private OrderToSendDao orderToSendDao;

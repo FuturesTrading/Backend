@@ -7,9 +7,12 @@ import com.example.demo.response.ResultCode;
 import com.example.demo.util.DateUtil;
 import com.example.demo.util.ResultUtil;
 import com.example.tradergateway.core.processor.ProcessorFactory;
+import com.example.tradergateway.dao.OrderToSendDao;
 import com.example.tradergateway.dto.OrdersDTO;
+import com.example.tradergateway.kafka.KafkaOrderProducer;
 import com.example.tradergateway.service.OrdersDTOService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -21,18 +24,34 @@ public class OrdersController {
     @Autowired
     private OrdersDTOService ordersDTOService;
 
+    @Autowired
+    private KafkaOrderProducer kafkaOrderProducer;
+
     @PostMapping(value = "/order")
     public Result createOrder(@RequestBody OrdersDTO orderDTO,
                               @RequestParam(defaultValue = ProcessorFactory.NONE) String processStrategy,
                               @RequestParam(defaultValue = DateUtil.TOMMOROW_OPEN) String startTime,
                               @RequestParam(defaultValue = DateUtil.TOMMOROW_CLOSE) String endTime,
                               @RequestParam(defaultValue = "5") Integer intervalMinute){
-        if (orderDTO.getQuantity() <= 0)
-            return ResultUtil.failure(ResultCode.WRONG_ORDER_QUANTITY);
-        if (orderDTO.getProductId() == null)
-            return ResultUtil.failure(ResultCode.WRONG_ORDER_PRODUCT);
-        if (orderDTO.getVariety() >4 || orderDTO.getVariety()<=0)
-            return ResultUtil.failure(ResultCode.WRONG_ORDER_VARIETY);
+
+        System.out.println("=============处理order=======================");
+//        OrdersDTO ordersDTO1;
+//        ordersDTO1 = new OrdersDTO(orderDTO);
+//        Integer q=ordersDTO1.getQuantity();
+//        ordersDTO1.setQuantity(50);
+//        kafkaOrderProducer.sendKafka(ordersDTO1);
+        if(orderDTO.getVariety()!=4) {
+            if (orderDTO.getQuantity() <= 0)
+                return ResultUtil.failure(ResultCode.WRONG_ORDER_QUANTITY);
+            if (orderDTO.getProductId() == null)
+                return ResultUtil.failure(ResultCode.WRONG_ORDER_PRODUCT);
+            if (orderDTO.getVariety() > 4 || orderDTO.getVariety() <= 0)
+                return ResultUtil.failure(ResultCode.WRONG_ORDER_VARIETY);
+
+        }
+        else{
+            processStrategy=ProcessorFactory.NONE;
+        }
 
         ProcessorFactory.Parameter pp;
 
