@@ -7,14 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tradergateway" />
-        <module name="zuul" />
         <module name="demo" />
+        <module name="zuul" />
         <module name="common" />
         <module name="register-server" />
+        <module name="register" />
         <module name="brokergateway" />
         <module name="tradergateway-service" />
-        <module name="register" />
+        <module name="tradergateway" />
         <module name="brokergateway-service" />
       </profile>
     </annotationProcessing>
